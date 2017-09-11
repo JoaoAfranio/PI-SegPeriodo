@@ -6,4 +6,4 @@ Plataforma web para interação do dentista com o protético para fazer pedidos de 
 
 Grupo:
 - João Antonio.
-- João Afrânios
+- João Afrânio.
