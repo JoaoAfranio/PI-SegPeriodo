@@ -23,8 +23,8 @@ protético empregado para : Fazer alterações, confirmar pedidos , fazer novos ped
 ### 2 - Cronograma
 
 
-- Setembro: Paginas de Login/Cadastro
+- Setembro: Paginas de Login/Cadastro.
 
-- Outubro: 
+- Outubro: Pagina do Dentista: Fazer pedidos,filtrar proteticos por região.
 
-- Novembro: 
+- Novembro: Pagina do Protetico: Aceitar pedidos,listar trabalhos.
