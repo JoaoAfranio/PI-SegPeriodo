@@ -6,6 +6,24 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript">
+function validaCampo()
+{
+if(document.login.user.value=="")
+{
+alert("Insira seu nome de usuário.");
+return false;
+}
+else
+if(document.login.pass.value=="")
+{
+alert("Insira sua senha.");
+return false;
+}
+else
+return true;
+}
+</script>
 </head>
 <body>
 	<div class="container">
@@ -15,14 +33,19 @@
 			<div class="col-md-4 login">
 				<img class="logotipo" src="imgs/logotipo.jpg">
 			
-				<form style="margin-top: 50px;margin-left: 20px;">
-					<input placeholder="Login" type="text" class="login_input">
-					<input placeholder="Senha" type="password" class="login_input">
+				<form  style="margin-top: 50px;margin-left: 20px;" action="login.php"  method="post" name="login" id="login">
+					<input placeholder="Login" type="text" class="login_input" name="user" id="user" >
+					<input placeholder="Senha" type="password" class="login_input" name="pass" id="pass">
 					<br>
-					<input class="button-login" type="submit" name="buttonLogin">
-				</form>
+					<button class="button-login" type="submit" value="Entrar" name="buttonLogin" onclick="return validaCampo(); return false;">Entrar</button>
+					<a href="cadastro.html"><button class="button-cadastro" type="button" onclick="" name="buttonLogin" value="Entrar">Cadastrar</button></a>
+
+					</form>
+
+				
 			</div>
 		</div>
 	</div>
 </body>
 </html>
+
