@@ -1,26 +1,21 @@
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-</head>
-<?php
-error_reporting(0);
-ini_set(“display_errors”, 0 );
+<?php 
+  include("conecta.php");
+
+  $user = $_POST['user'];
+  $entrar = $_POST['entrar'];
+  $pass = $_POST['pass'];
+
+    if (isset($entrar)) {
+            
+      $verifica = mysqli_query($conexao, "SELECT * FROM login WHERE login = '$user' AND senha = '$pass'") or die("erro ao selecionar");
+        if (mysqli_num_rows($verifica)<=0){
+          echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.html';</script>";
+          die();
+        }else{
+          setcookie("login",$login);
+          header("Location:index.html");
+          
+        }
+    }
 ?>
-<?php
-$user = $_POST['user'];
-$pass = $_POST['pass'];
- include("bd.php");
-if($valida[$user]==$pass){
-setcookie("logado", "1");
- echo "<script>location.href='main.php'</script>";
- }
- else{
- echo "<font face=verdana size=2>";
- echo "Usuário ou senha incorretos!";
- echo "<br>";
- echo "<a href=index.html>";
- echo "Clique aqui</a> para tentar novamente.";
- echo "</a></font>";
- }
-?>
+

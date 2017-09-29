@@ -18,7 +18,7 @@
 	<div class="row cadastroback">
 		<div class="col-md-4">
 			<h4 class="titlecad" ">Dados para acesso</h4>
-					<form  style="margin-top: 50px;margin-left: 20px;" action="login.php"  method="post" name="login" id="login">
+					<form  style="margin-top: 50px;margin-left: 20px;" action="gravar.php"  method="get" name="login" id="login">
 					<label class="labelcad">Seu E-mail*</label><br>
 					<input type="email" name="email"><br>
 					<label class="labelcad">Nome para logar*</label><br>
@@ -28,18 +28,18 @@
 					<label class="labelcad">Confirme sua senha</label><br>
 					<input type="password" name="confirmaSenha"><br>
 					<label class="labelcad">Trabalho</label><br>
-					<input type="radio" name="trabalho" value="protetico"> Protético<br>
-					<input type="radio" name="trabalho" value="dentista"> Dentista<br>
+					<input type="radio" name="trabalho" value="protetico"> <span class="labelcad">Protético</span><br>
+					<input type="radio" name="trabalho" value="dentista"> <span class="labelcad">Dentista</span><br>
 		</div>
 	
 		<div class="col-md-4">
 			<h4 class="titlecad2" ">Dados pessoais</h4>
 					<label style="margin-top: 50px;" class="labelcad">Nome Completo</label><br>
-					<input type="text" name="nomeCompleto"><br>
+					<input type="text" name="nome"><br>
 					<label class="labelcad">Data de Nascimento</label><br>
-					<input type="date" name="dataNascimento"><br>
+					<input type="date" name="data"><br>
 					<label class="labelcad">Sexo</label><br>
-					<select>
+					<select name="sexo">
 					  	<option value=""></option>
 					  	<option value="masculino">Masculino</option>
 					  	<option value="feminino">Feminino</option>
@@ -63,7 +63,7 @@
 					<label class="labelcad">Cidade</label><br>
 					<input type="text" name="cidade"><br>
 					<label class="labelcad">Estado</label><br>
-					<select>
+					<select name="estado">
 							<option value=""/option>
 						    <option value="AC">Acre</option>
 						    <option value="AL">Alagoas</option>
@@ -93,7 +93,9 @@
 						    <option value="SE">Sergipe</option>
 						    <option value="TO">Tocantins</option>
 					</select><br>
-					<button class="button-cadastro">Prossiga</button>
+					<input type="submit" class="button-cadastro"></input>
+		</form>
+					<a href="index.html"><button class="button-cadastro">Voltar</button></a>
 		</div>
 	</div>
 
