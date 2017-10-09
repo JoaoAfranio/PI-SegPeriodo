@@ -22,3 +22,9 @@ function deleteCookie(nome){
     document.cookie = nome + "=" + escape("")+ ((-1 
        == null) ? "" : "; expires=" + exdate);
   } 
+
+function login(){
+	
+  alert("Olá, Bem Vindo!");
+
+}

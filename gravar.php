@@ -1,5 +1,6 @@
 <?php
 	include("conecta.php");
+	session_start();
 
 	$recebeEMAIL = $_GET["email"];
 	$recebeLOGIN = $_GET["login"];
@@ -21,4 +22,6 @@
 	mysqli_query($conexao, "insert into login (login, email, senha, trabalho, nome, aniversario, sexo, telefone, CEP, logradouro, numero, complemento, bairro, estado) values ('$recebeLOGIN', '$recebeEMAIL','$recebeSENHA', '$recebeTRABALHO', '$recebeNOME', '$recebeDATA', '$recebeSEXO', '$recebeTEL', '$recebeCEP', '$recebeLOGRADOURO', '$recebeNUMERO', '$recebeCOMPLEMENTO', '$recebeBAIRRO', '$recebeESTADO')");
 
 	header("location:index.html");
+
+$_SESSION["nome"] = $recebeNOME
 ?>

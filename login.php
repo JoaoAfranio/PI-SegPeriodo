@@ -13,9 +13,8 @@
           die();
         }else{  
           setcookie("login",$login);
-          header("Location:principal.html");
+          header("Location:principal.php");
           
         }
     }  
 ?>
-
