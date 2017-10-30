@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Collapsible sidebar using Bootstrap 3</title>
+        <title>Fazer Pedidos</title>
 
          <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -93,65 +93,72 @@
                 
                 <div class="row cadastroback">
              <div class="col-md-4">
-                    <form  style="margin-left: 20px;" action=""  method="get" name="Pedidos" id="login">
-                    <input type="radio" name="Ee.p.f" value="e.p.f"> <span class="labelcad">Elemento Ponte Fixa</span><br>
-                    <input type="radio" name="coroav" value="coroav"> <span class="labelcad">Coroa Vaneer</span><br>
-                    <input type="radio" name="coroat" value="coroat"> <span class="labelcad">Coroa Total</span><br>
-                    <input type="radio" name="coroa.j.p" value="coroa.j.p"> <span class="labelcad">Coroa Jaqueta Pura</span><br>
-                    <input type="radio" name=".m" value="r.m"> <span class="labelcad">R.M Fundida</span><br>
-                    <input type="radio" name="nucleo.d" value="nucleo.d"> <span class="labelcad">Núcleo Direto</span><br>
-                    <input type="radio" name="nucleo.i" value="nucleo.i"> <span class="labelcad">Núcleo Indireto</span><br>
-                    <input type="radio" name="copiny.r" value="copiny.r"> <span class="labelcad">Copiny para Resina</span><br>
+                <form  style="margin-left: 20px;" action="fazerPedido.php"  method="get" name="Pedidos" id="login">
+                    <input type="radio" name="trabalho" value="e.p.f"> <span class="labelcad">Elemento Ponte Fixa</span><br>
+                    <input type="radio" name="trabalho" value="coroav"> <span class="labelcad">Coroa Vaneer</span><br>
+                    <input type="radio" name="trabalho" value="coroat"> <span class="labelcad">Coroa Total</span><br>
+                    <input type="radio" name="trabalho" value="coroa.j.p"> <span class="labelcad">Coroa Jaqueta Pura</span><br>
+                    <input type="radio" name="trabalho" value="r.m"> <span class="labelcad">R.M Fundida</span><br>
+                    <input type="radio" name="trabalho" value="nucleo.d"> <span class="labelcad">Núcleo Direto</span><br>
+                    <input type="radio" name="trabalho" value="nucleo.i"> <span class="labelcad">Núcleo Indireto</span><br>
+                    <input type="radio" name="trabalho" value="copiny.r"> <span class="labelcad">Copiny para Resina</span><br>
             </div>        
             <div class="col-md-4">           
-                    <input type="radio" name="copiny.c" value="copiny.c"> <span class="labelcad">Copiny Cerâmico</span><br>
-                    <input type="radio" name="inlay" value="inlay"> <span class="labelcad">Inlay Onlay</span><br>
-                    <input type="radio" name="elemento.p" value="elemento.p"> <span class="labelcad">Elemento Provisório Acrílico</span><br>
-                    <input type="radio" name="ponto.d.s" value="ponto.d.s"> <span class="labelcad">Ponto de Solda</span><br>
-                    <input type="radio" name="protese.t" value="protese.t"> <span class="labelcad">Prótese Total (Detadura)</span><br>          
-                    <input type="radio" name="ponto.m" value="ponto.m"> <span class="labelcad">Ponte Móvel (Roach Metal)</span><br>
-                    <input type="radio" name="ponte.m" value="ponte.m"> <span class="labelcad">Ponte Móvel (Roach parte Acrílica)</span><br>
-                    <input type="radio" name="provisoria" value="provisoria"> <span class="labelcad">Provisória (Perereca)</span><br>
+                    <input type="radio" name="trabalho" value="copiny.c"> <span class="labelcad">Copiny Cerâmico</span><br>
+                    <input type="radio" name="trabalho" value="inlay"> <span class="labelcad">Inlay Onlay</span><br>
+                    <input type="radio" name="trabalho" value="elemento.p"> <span class="labelcad">Elemento Provisório Acrílico</span><br>
+                    <input type="radio" name="trabalho" value="ponto.d.s"> <span class="labelcad">Ponto de Solda</span><br>
+                    <input type="radio" name="trabalho" value="protese.t"> <span class="labelcad">Prótese Total (Detadura)</span><br>          
+                    <input type="radio" name="trabalho" value="ponto.m"> <span class="labelcad">Ponte Móvel (Roach Metal)</span><br>
+                    <input type="radio" name="trabalho" value="ponte.m"> <span class="labelcad">Ponte Móvel (R. parte Acrílica)</span><br>
+                    <input type="radio" name="trabalho" value="provisoria"> <span class="labelcad">Provisória (Perereca)</span><br>
             </div>        
             <div class="col-md-4">          
-                    <input type="radio" name="placa.c" value="placa.c"> <span class="labelcad">Placa Clareamento</span><br>
-                    <input type="radio" name="placa.b.a" value="placa.b.a> <span class="labelcad">Placa Bruxismo Acrílica</span><br>
-                    <input type="radio" name="placa.b.p" value="placa.b.p"> <span class="labelcad">Placa Bruxismo Plastivac</span><br>
-                    <input type="radio" name="vaz" value="vaz"> <span class="labelcad">Vaz-Gesso</span><br>
-                    <input type="radio" name="consertos" value="consertos"> <span class="labelcad">Consertos</span><br>
-                    <input type="radio" name="moldeira" value="moldeira"> <span class="labelcad">Moldeira Individual de acrilico (P.C)</span><br>
-                    <input type="radio" name="montagem" value="montagem"> <span class="labelcad">Montagem no articulador</span>
-                 </div></div>
+                    <input type="radio" name="trabalho" value="placa.c"> <span class="labelcad">Placa Clareamento</span><br>
+                    <input type="radio" name="trabalho" value="placa.b.a> <span class="labelcad">Placa Bruxismo Acrílica</span><br>
+                    <input type="radio" name="trabalho" value="placa.b.p"> <span class="labelcad">Placa Bruxismo Plastivac</span><br>
+                    <input type="radio" name="trabalho" value="vaz"> <span class="labelcad">Vaz-Gesso</span><br>
+                    <input type="radio" name="trabalho" value="consertos"> <span class="labelcad">Consertos</span><br>
+                    <input type="radio" name="trabalho" value="moldeira"> <span class="labelcad">Moldeira Individual de acrilico</span><br>
+                    <input type="radio" name="trabalho" value="montagem"> <span class="labelcad">Montagem no articulador</span>
+                 </div>
+                 </div>
                  
-                 <div><div align="center">
-                     <img width="500px" height="300px" style=" margin-top: 30px; padding: auto;" src="imgs/quadrante_dentario.jpeg"></div><br>
-                     <div align="center">
-                   <label class="labelcad">Numeração do Dente</label>
-                    <input type="text" name="dente">
-                    <label class="labelcad">Sexo</label>
-                    <select name="sexo">
-                        <option value=""></option>
-                        <option value="masculino">Masculino</option>
-                        <option value="feminino">Feminino</option>
-                    </select>
-                    <label class="labelcad">Idade</label>
-                    <input type="text" name="idade_pedido">
-                    <label class="labelcad">Cor do dente</label>
-                    <input type="text" name="dente">
-                 </div>
+                 <h3>Informações do paciente</h3>
                  <div align="center">
-                     <label class="labelcad">Entrada no lab</label>
-                    <input type="datetime-local" name="data_entrada">
-                    <label class="labelcad">Data para Prova</label>
-                    <input type="datetime-local" name="data_prova">
-                    <label class="labelcad">Data para entrega</label>
-                    <input type="datetime-local" name="data_entrega">
+                     <img class="img-responsive" width="500px" height="300px" style=" margin-top: 30px; padding: auto;" src="imgs/quadrante_dentario.jpeg"></div><br>
+                
+                <div class="row">     
+                        
+                        <div class="col-md-4">
+                           
+                            
+                            <label class="labelcad">Sexo</label><br>
+                                <select name="sexo">
+                                    <option value=""></option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="feminino">Feminino</option>
+                                </select><br>
+                            
+                            <label class="labelcad">Idade</label><br>
+                            <input type="text" name="idade_pedido">
+                            
+                        </div>
+
+                        <div class="col-md-4">
+                           
+                            <label class="labelcad">Numeração do Dente</label>
+                            <input type="text" name="num_dente">
+                            
+                            <label class="labelcad">Cor do dente</label>
+                            <input type="text" name="cor_dente">
+                         
+                         </div>
+                 
                  </div>
+                 
                  <div>
-                     <label class="labelcad">Valor R$</label>
-                    <input type="number" name="valor">
-                 </div>
-                 <div>
+                    <br>
                      <label class="labelcad">Obs:</label>
                     <input type="text" name="obs" size="70">
                  </div><br>

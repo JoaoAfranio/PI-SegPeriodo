@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Out-2017 às 03:02
+-- Generation Time: 30-Out-2017 às 09:50
 -- Versão do servidor: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -56,6 +56,30 @@ INSERT INTO `login` (`id`, `login`, `email`, `senha`, `trabalho`, `nome`, `anive
 (2, 'joaoantonio', 'Joaoantonio@hotmail.com', 123456, 'protetico', 'Joao Antonio Fulano', '1950-02-16', 'masculino', 99999999, 387801120, 'Seila Mano', 40, 'Tambem Nao Sei', 'Centro', 'MG', 'Patos de Minas'),
 (3, 'ruan', 'ruan@hotmail.com', 123456, 'dentista', 'Ruan Lala Tete', '2017-10-11', 'masculino', 2147483647, 3878778, 'Avenida X', 586, 'Apt 305', 'Centro', 'MG', 'Patos de Minas');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pedidos`
+--
+
+CREATE TABLE `pedidos` (
+  `id` int(50) NOT NULL,
+  `trabalho` varchar(100) NOT NULL,
+  `sexo` varchar(50) NOT NULL,
+  `idade_paciente` varchar(50) NOT NULL,
+  `num_dente` varchar(50) NOT NULL,
+  `cor_dente` varchar(50) NOT NULL,
+  `obs` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`) VALUES
+(1, 'e.p.f', 'masculino', '18', '13', '1B', 'Sem Observacoes'),
+(4, 'coroa.j.p', 'feminino', '25', '42', '2B', '-');
+
 --
 -- Indexes for dumped tables
 --
@@ -67,6 +91,12 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -75,6 +105,12 @@ ALTER TABLE `login`
 --
 ALTER TABLE `login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
