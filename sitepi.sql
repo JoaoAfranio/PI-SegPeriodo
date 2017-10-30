@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Set-2017 às 09:06
+-- Generation Time: 30-Out-2017 às 03:02
 -- Versão do servidor: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -43,8 +43,18 @@ CREATE TABLE `login` (
   `numero` int(20) NOT NULL,
   `complemento` varchar(535) NOT NULL,
   `bairro` varchar(535) NOT NULL,
-  `estado` varchar(535) NOT NULL
+  `estado` varchar(535) NOT NULL,
+  `cidade` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `login`
+--
+
+INSERT INTO `login` (`id`, `login`, `email`, `senha`, `trabalho`, `nome`, `aniversario`, `sexo`, `telefone`, `CEP`, `logradouro`, `numero`, `complemento`, `bairro`, `estado`, `cidade`) VALUES
+(1, 'joao', 'joaoafraniorosa@hotmail.com', 123456, 'protetico', 'Joao Afranio Silva Rosa', '1999-05-20', 'masculino', 99999, 38780, 'Avenida Paracatu', 386, '', 'Centro', 'MG', 'Vazante'),
+(2, 'joaoantonio', 'Joaoantonio@hotmail.com', 123456, 'protetico', 'Joao Antonio Fulano', '1950-02-16', 'masculino', 99999999, 387801120, 'Seila Mano', 40, 'Tambem Nao Sei', 'Centro', 'MG', 'Patos de Minas'),
+(3, 'ruan', 'ruan@hotmail.com', 123456, 'dentista', 'Ruan Lala Tete', '2017-10-11', 'masculino', 2147483647, 3878778, 'Avenida X', 586, 'Apt 305', 'Centro', 'MG', 'Patos de Minas');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +74,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

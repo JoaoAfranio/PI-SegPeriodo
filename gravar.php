@@ -18,8 +18,9 @@
 	$recebeCOMPLEMENTO = $_GET["complemento"];
 	$recebeBAIRRO = $_GET["bairro"];
 	$recebeESTADO = $_GET["estado"];
+	$recebeCIDADE = $_GET["cidade"];
 
-	mysqli_query($conexao, "insert into login (login, email, senha, trabalho, nome, aniversario, sexo, telefone, CEP, logradouro, numero, complemento, bairro, estado) values ('$recebeLOGIN', '$recebeEMAIL','$recebeSENHA', '$recebeTRABALHO', '$recebeNOME', '$recebeDATA', '$recebeSEXO', '$recebeTEL', '$recebeCEP', '$recebeLOGRADOURO', '$recebeNUMERO', '$recebeCOMPLEMENTO', '$recebeBAIRRO', '$recebeESTADO')");
+	mysqli_query($conexao, "insert into login (login, email, senha, trabalho, nome, aniversario, sexo, telefone, CEP, logradouro, numero, complemento, bairro, estado, cidade) values ('$recebeLOGIN', '$recebeEMAIL','$recebeSENHA', '$recebeTRABALHO', '$recebeNOME', '$recebeDATA', '$recebeSEXO', '$recebeTEL', '$recebeCEP', '$recebeLOGRADOURO', '$recebeNUMERO', '$recebeCOMPLEMENTO', '$recebeBAIRRO', '$recebeESTADO', '$recebeCIDADE')");
 
 	header("location:index.html");
 
