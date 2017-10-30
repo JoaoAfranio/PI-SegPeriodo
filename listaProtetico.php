@@ -7,6 +7,8 @@ $filtroESTADO = $_GET["estado"];
 $consulta = "SELECT nome, email, cidade FROM login WHERE estado = '$filtroESTADO'";
 $con = $conexao ->query($consulta) or die ($con->error);
 
+
+
 ?>
 <html>
     <head>
@@ -120,7 +122,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                             <option value="SE">Sergipe</option>
                             <option value="TO">Tocantins</option>
                     </select>
-                    <input type="submit"/>
+                    <input onclick="pesquisa_Sucesso()" type="submit"/>
                 </form>
                 </p>
                 <div class="line"></div>
@@ -163,6 +165,13 @@ $con = $conexao ->query($consulta) or die ($con->error);
          <!-- Bootstrap Js CDN -->
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+         <script type="text/javascript">
+             function pesquisa_Sucesso(){
+                
+               alert("Pesquisa realizada com sucesso!");
+
+             }
+         </script>
 
          <script type="text/javascript">
              $(document).ready(function () {

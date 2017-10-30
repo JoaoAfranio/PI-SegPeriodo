@@ -28,3 +28,7 @@ function login(){
   alert("Olá, Bem Vindo!");
 
 }
+
+function inserirNum(num){
+	document.getElementById("numeracao").value = "" +num;
+}

@@ -96,7 +96,7 @@
                 <div class="row cadastroback">
              <div class="col-md-4">
                 <form  style="margin-left: 20px;" action="fazerPedido.php"  method="get" name="Pedidos" id="login">
-                    <input type="radio" name="trabalho" value="e.p.f"> <span class="labelcad">Elemento Ponte Fixa</span><br>
+                    <input type="radio" required name="trabalho" value="e.p.f"> <span class="labelcad">Elemento Ponte Fixa</span><br>
                     <input type="radio" name="trabalho" value="coroav"> <span class="labelcad">Coroa Vaneer</span><br>
                     <input type="radio" name="trabalho" value="coroat"> <span class="labelcad">Coroa Total</span><br>
                     <input type="radio" name="trabalho" value="coroa.j.p"> <span class="labelcad">Coroa Jaqueta Pura</span><br>
@@ -176,24 +176,24 @@
                            
                             
                             <label class="labelcad">Sexo</label><br>
-                                <select name="sexo">
+                                <select required name="sexo">
                                     <option value=""></option>
                                     <option value="masculino">Masculino</option>
                                     <option value="feminino">Feminino</option>
                                 </select><br>
                             
                             <label class="labelcad">Idade</label><br>
-                            <input type="text" name="idade_pedido">
+                            <input required type="text" name="idade_pedido">
                             
                         </div>
 
                         <div class="col-md-4">
                            
                             <label class="labelcad">Numeração do Dente</label>
-                            <input type="text" name="num_dente" id="numeracao">
+                            <input required type="text" name="num_dente" id="numeracao">
                             
                             <label class="labelcad">Cor do dente</label>
-                            <input type="text" name="cor_dente">
+                            <input required type="text" name="cor_dente">
                          
                          </div>
                  
@@ -204,7 +204,7 @@
                      <label class="labelcad">Obs:</label>
                     <input type="text" name="obs" size="70">
                  </div><br>
-                 <input type="submit" class="button-cadastro"></input>
+                 <input onclick="pedido_Sucesso()" type="submit" class="button-cadastro"></input>
         </form>
                     <a href="mainDentista.html"><button class="button-cadastro">Voltar</button></a>
         </div>
@@ -213,6 +213,8 @@
          </div>        
         </div>
 
+        <script src="js/script.js"></script>
+        <!-- Imagem Mapeada -->
         <script src="js/mapearImagem.js"></script>
         <!-- jQuery CDN -->
          <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -225,6 +227,14 @@
                      $('#sidebar').toggleClass('active');
                  });
              });
+         </script>
+
+         <script type="text/javascript">
+             function pedido_Sucesso(){
+                
+               alert("Pedido realizado com sucesso!");
+
+             }
          </script>
 
 
