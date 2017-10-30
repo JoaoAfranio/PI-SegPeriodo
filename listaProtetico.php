@@ -5,7 +5,7 @@ include("conecta.php");
 $filtroESTADO = $_GET["estado"];
 
 $consulta = "SELECT nome, email, cidade FROM login WHERE estado = '$filtroESTADO'";
-$con = $conexao ->query($consulta) or die ($mysqli->error);
+$con = $conexao ->query($consulta) or die ($con->error);
 
 ?>
 <html>
@@ -142,7 +142,7 @@ $con = $conexao ->query($consulta) or die ($mysqli->error);
 
                 <div class="line"></div>
 
-                <p>
+               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
