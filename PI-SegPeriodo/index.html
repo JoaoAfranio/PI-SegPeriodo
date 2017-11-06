@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<title>Index</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script src="popper/popper.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+</head>
+
+
+<body class="body">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+			</div>
+			<div class="col-md-4 login">
+				<img class="logotipo" src="imgs/logotipo.jpg">
+			
+				<form  style="margin-top: 50px;margin-left: 20px;" action="login.php"  method="post" name="login" id="login">
+					<input placeholder="Login" type="text" class="login_input" name="login" id="login" >
+					<input style="margin-bottom: 20px;" placeholder="Senha" type="password" class="login_input" name="senha" id="senha">
+					<br>
+					<a style="margin-left: 50px;margin-top: 10px;" href="cadastro.html">Não possui uma conta?</a>
+					<button class="button-login" type="submit" value="entrar" name="entrar" id="entrar" onclick="return validaCampo(); return false;">Entrar</button>
+					
+
+					</form>
+
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

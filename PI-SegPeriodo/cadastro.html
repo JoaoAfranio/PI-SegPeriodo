@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadastro</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript"></script>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row">
+	<h2 class="cadastroTitle">Cadastro</h2>
+	</div>
+
+	<div class="row cadastroback">
+		<div class="col-md-4">
+			<h4 class="titlecad" ">Dados para acesso</h4>
+					<form  style="margin-top: 50px;margin-left: 20px;" action="gravarCadastro"  method="get" name="login" id="login">
+					<label class="labelcad">Seu E-mail*</label><br>
+					<input type="email" name="email"><br>
+					<label class="labelcad">Nome para logar*</label><br>
+					<input type="text" name="login"><br>
+					<label class="labelcad">Senha</label><br>
+					<input type="password" name="senha"><br>
+					<label class="labelcad">Confirme sua senha</label><br>
+					<input type="password" name="confirmaSenha"><br>
+					<label class="labelcad">Trabalho</label><br>
+					<input type="radio" name="trabalho" value="protetico"> <span class="labelcad">Protético</span><br>
+					<input type="radio" name="trabalho" value="dentista"> <span class="labelcad">Dentista</span><br>
+		</div>
+	
+		<div class="col-md-4">
+			<h4 class="titlecad2" ">Dados pessoais</h4>
+					<label style="margin-top: 50px;" class="labelcad">Nome Completo</label><br>
+					<input type="text" name="nome"><br>
+					<label class="labelcad">Data de Nascimento</label><br>
+					<input type="date" name="data"><br>
+					<label class="labelcad">Sexo</label><br>
+					<select name="sexo">
+					  	<option value=""></option>
+					  	<option value="masculino">Masculino</option>
+					  	<option value="feminino">Feminino</option>
+					</select><br>
+					<label class="labelcad">Telefone/Celular</label><br>
+					<input type="text" name="telefone"><br>
+		</div>
+
+		<div class="col-md-4">
+			<h4 class="titlecad2" ">Dados para entrega</h4>
+					<label style="margin-top: 50px;" class="labelcad">CEP</label><br>
+					<input type="text" name="CEP"><br>
+					<label class="labelcad">Logradouro</label><br>
+					<input type="text" name="logradouro"><br>
+					<label style="margin-top: 10px;" class="labelcad">Número</label>
+					<input style="width: 50px;" type="text" name="numero"> 
+					<label style="margin-top: 10px;" class="labelcad">Complemento</label>
+					<input type="text" name="complemento"><br>
+					<label class="labelcad">Bairro</label><br>
+					<input type="text" name="bairro"><br>
+					<label class="labelcad">Cidade</label><br>
+					<input type="text" name="cidade"><br>
+					<label class="labelcad">Estado</label><br>
+					<select name="estado">
+							<option value=""></option>
+						    <option value="AC">Acre</option>
+						    <option value="AL">Alagoas</option>
+						    <option value="AP">Amapá</option>
+						    <option value="AM">Amazonas</option>
+						    <option value="BA">Bahia</option>
+						    <option value="CE">Ceará</option>
+						    <option value="DF">Distrito Federal</option>
+						    <option value="ES">Espírito Santo</option>
+						    <option value="GO">Goiás</option>
+						    <option value="MA">Maranhão</option>
+						    <option value="MT">Mato Grosso</option>
+						    <option value="MS">Mato Grosso do Sul</option>
+						    <option value="MG">Minas Gerais</option>
+						    <option value="PA">Pará</option>
+						    <option value="PB">Paraíba</option>
+						    <option value="PR">Paraná</option>
+						    <option value="PE">Pernambuco</option>
+						    <option value="PI">Piauí</option>
+						    <option value="RJ">Rio de Janeiro</option>
+						    <option value="RN">Rio Grande do Norte</option>
+						    <option value="RS">Rio Grande do Sul</option>
+						    <option value="RO">Rondônia</option>
+						    <option value="RR">Rorâima</option>
+						    <option value="SC">Santa Catarina</option>
+						    <option value="SP">São Paulo</option>
+						    <option value="SE">Sergipe</option>
+						    <option value="TO">Tocantins</option>
+					</select><br>
+					<input type="submit" class="button-cadastro"></input>
+		</form>
+					<a href="index.html"><button class="button-cadastro">Voltar</button></a>
+		</div>
+	</div>
+
+
+
+</div>
+
+
+
+</body>
+</html>
