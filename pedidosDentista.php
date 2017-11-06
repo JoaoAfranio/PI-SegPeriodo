@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+        <?php  
+        session_start();
+        if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+        {
+            unset($_SESSION['login']);
+            unset($_SESSION['senha']);
+            header('location:index.html');
+            }
+
+        $logado = $_SESSION['login'];
+        ?>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +46,7 @@
                             Home
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="mainDentista.html">Home 1</a></li>
+                            <li><a href="mainDentista.php">Home 1</a></li>
                             <li><a href="#">Home 2</a></li>
                             <li><a href="#">Home 3</a></li>
                         </ul>
@@ -206,7 +219,7 @@
                  </div><br>
                  <input onclick="pedido_Sucesso()" type="submit" class="button-cadastro"></input>
         </form>
-                    <a href="mainDentista.html"><button class="button-cadastro">Voltar</button></a>
+                    <a href="mainDentista.php"><button class="button-cadastro">Voltar</button></a>
         </div>
 
              

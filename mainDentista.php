@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+        <?php  
+        session_start();
+        if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+        {
+            unset($_SESSION['login']);
+            unset($_SESSION['senha']);
+            header('location:index.html');
+            }
+
+        $logado = $_SESSION['login'];
+        ?>
+
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,7 +57,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pedidosDentista.html">
+                        <a href="pedidosDentista.php">
                             <i class="glyphicon glyphicon-briefcase"></i>
                             Fazer Pedidos
                         </a>
