@@ -16,7 +16,7 @@
 	$recebeOBS = $_GET["obs"];
 
 
-	mysqli_query($conexao, "insert into pedidos (trabalho, sexo, idade_paciente, num_dente, cor_dente, obs, dentista) values ('$recebeTRABALHO', '$recebeSEXO','$recebeIDADE', '$recebeNUM_DENTE', '$recebeCOR_DENTE', '$recebeOBS', '$logado')");
+	mysqli_query($conexao, "insert into pedidos (trabalho, sexo, idade_paciente, num_dente, cor_dente, obs, dentista,disponibilidade) values ('$recebeTRABALHO', '$recebeSEXO','$recebeIDADE', '$recebeNUM_DENTE', '$recebeCOR_DENTE', '$recebeOBS', '$logado', 'Aberto')");
 
 	header("location:pedidosDentista.php");
 ?>

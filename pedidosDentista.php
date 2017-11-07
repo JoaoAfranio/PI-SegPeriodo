@@ -58,13 +58,13 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="#">
+                        <a href="pedidosDentista.php">
                             <i class="glyphicon glyphicon-briefcase"></i>
                             Fazer Pedidos
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="listaPedidos.php">
                             <i class="glyphicon glyphicon-list"></i>
                             Listar Pedidos
                         </a>

@@ -2,11 +2,21 @@
 
 include("conecta.php");
 
-$filtroESTADO = $_GET["estado"];
+session_start();
+        
+        if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+        {
+            unset($_SESSION['login']);
+            unset($_SESSION['senha']);
+            header('location:index.html');
+        }
 
-$consulta = "SELECT nome, email, cidade FROM login WHERE estado = '$filtroESTADO'";
+
+$dentista = $_SESSION['login'];
+
+
+$consulta = "SELECT * FROM pedidos WHERE dentista = '$dentista'";
 $con = $conexao ->query($consulta) or die ($con->error);
-
 
 
 ?>
@@ -17,10 +27,9 @@ $con = $conexao ->query($consulta) or die ($con->error);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <title>Listar Proteticos</title>
-
-         <!-- Bootstrap CSS CDN -->
+         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <!-- Our Custom CSS -->
+        <!-- CSS da SIDEBAR-->
         <link rel="stylesheet" href="css/sidebar.css">
 
         <style type="text/css">
@@ -49,10 +58,10 @@ $con = $conexao ->query($consulta) or die ($con->error);
 
         </style>
 
+
+
     </head>
     <body>
-    <style type="text/css"></style>
-
 
         <div class="wrapper">
             <!-- Sidebar Holder -->
@@ -69,7 +78,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                             Home
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="#">Home 1</a></li>
+                            <li><a href="mainDentista.php">Home 1</a></li>
                             <li><a href="#">Home 2</a></li>
                             <li><a href="#">Home 3</a></li>
                         </ul>
@@ -86,13 +95,13 @@ $con = $conexao ->query($consulta) or die ($con->error);
                             Fazer Pedidos
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="listaPedidos.php">
                             <i class="glyphicon glyphicon-list"></i>
                             Listar Pedidos
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="listaProtetico.php?estado=">
                             <i class="glyphicon glyphicon-send"></i>
                             Listar Protéticos
@@ -116,55 +125,38 @@ $con = $conexao ->query($consulta) or die ($con->error);
                     </div>
                 </nav>
 
-                <h2>Listar Protéticos</h2>
-                <p>Procurar por protéticos
-                 <form  action="listaProtetico.php"  method="get">   
-                    <select name="estado">
-                            <option value=""></option>
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="PA">Pará</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PR">Paraná</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="RN">Rio Grande do Norte</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Rorâima</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
-                    </select>
-                    <input onclick="pesquisa_Sucesso()" type="submit"/>
-                </form>
-                </p>
+                <h2>Listar meus pedidos</h2>
+                <button>Alterar Pedido</button>
+                <button>Excluir Pedido</button>
                 <div class="line"></div>
                 
                 <table id="tabelaCustom">
                 	<tr>
-                		<th>Nome</th>
-                		<th style="padding-left: 20px;">E-mail</th>
-                		<th style="padding-left: 20px;">Cidade</th>
+                        <th></th>
+                		<th>Nº</th>
+                        <th>Tipo</th>
+                        <th>Sexo do paciente</th>
+                        <th>Idade do paciente</th>
+                        <th>Numero do dente</th>
+                        <th>Cor do Dente</th>
+                        <th>Protético Responsável</th>
+                        <th>Status do Pedido</th>
                 	</tr>
+
                 	<?php while($dado = $con->fetch_array()){?>
                 	<tr>
-                		<td><?php echo $dado["nome"];?></td>
-                		<td style="padding-left: 20px;"><?php echo $dado["email"];?></td>
-                		<td style="padding-left: 20px;"><?php echo $dado["cidade"];?></td>
+                        <td><input type="checkbox" name=""></td>
+                		<td style="padding-bottom: 10px;"><?php echo $dado["id"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["trabalho"];?></td>
+                		<td style="padding-bottom: 10px;"><?php echo $dado["sexo"];?></td>
+                		<td style="padding-bottom: 10px;"><?php echo $dado["idade_paciente"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["num_dente"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["cor_dente"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["protetico_resp"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["disponibilidade"];?></td>
+
+
+
                 	</tr>
                 	<?php } ?>
                 </table>
@@ -172,6 +164,11 @@ $con = $conexao ->query($consulta) or die ($con->error);
                 <div class="line"></div>
 
                <p>
+                P.S: Só é possível alterar o pedido no qual o status encontra-se em ABERTO.
+                <br>
+                Caso queira alterar um pedido que esteja em andamento,entre em contato com o protético responsável.
+                </p>
+                <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -191,14 +188,6 @@ $con = $conexao ->query($consulta) or die ($con->error);
          <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
          <!-- Bootstrap Js CDN -->
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-         <script type="text/javascript">
-             function pesquisa_Sucesso(){
-                
-               alert("Pesquisa realizada com sucesso!");
-
-             }
-         </script>
 
          <script type="text/javascript">
              $(document).ready(function () {

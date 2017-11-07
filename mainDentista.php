@@ -63,7 +63,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="listaPedidos.php">
                             <i class="glyphicon glyphicon-list"></i>
                             Listar Pedidos
                         </a>

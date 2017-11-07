@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Out-2017 às 09:50
+-- Generation Time: 07-Nov-2017 às 13:51
 -- Versão do servidor: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -69,16 +69,25 @@ CREATE TABLE `pedidos` (
   `idade_paciente` varchar(50) NOT NULL,
   `num_dente` varchar(50) NOT NULL,
   `cor_dente` varchar(50) NOT NULL,
-  `obs` varchar(500) NOT NULL
+  `obs` varchar(500) NOT NULL,
+  `dentista` varchar(500) NOT NULL,
+  `disponibilidade` varchar(400) NOT NULL,
+  `protetico_resp` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`) VALUES
-(1, 'e.p.f', 'masculino', '18', '13', '1B', 'Sem Observacoes'),
-(4, 'coroa.j.p', 'feminino', '25', '42', '2B', '-');
+INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`, `dentista`, `disponibilidade`, `protetico_resp`) VALUES
+(1, 'e.p.f', 'masculino', '18', '13', '1B', 'Sem Observacoes', '', '', ''),
+(4, 'coroa.j.p', 'feminino', '25', '42', '2B', '-', '', '', ''),
+(8, 'nucleo.d', 'feminino', '18', '27', '20', '', '', '', ''),
+(9, 'nucleo.d', 'feminino', '18', '17', '2b', '', '', '', ''),
+(10, 'copiny.r', 'masculino', '23', '18', '2n', '', '', '', ''),
+(11, 'r.m', 'feminino', '23', '18', '32', '', 'joao', '', ''),
+(12, 'coroav', 'feminino', '32', '17', '2b', '-', 'ruan', '', ''),
+(13, 'nucleo.i', 'feminino', '25', '16', '2b', '', 'ruan', 'Aberto', '');
 
 --
 -- Indexes for dumped tables
@@ -110,7 +119,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
