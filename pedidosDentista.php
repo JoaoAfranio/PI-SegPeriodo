@@ -191,8 +191,8 @@
                             <label class="labelcad">Sexo</label><br>
                                 <select required name="sexo">
                                     <option value=""></option>
-                                    <option value="masculino">Masculino</option>
-                                    <option value="feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
                                 </select><br>
                             
                             <label class="labelcad">Idade</label><br>
