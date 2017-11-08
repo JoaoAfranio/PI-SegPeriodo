@@ -109,33 +109,33 @@
                 <div class="row cadastroback">
              <div class="col-md-4">
                 <form  style="margin-left: 20px;" action="fazerPedido.php"  method="get" name="Pedidos" id="login">
-                    <input type="radio" required name="trabalho" value="e.p.f"> <span class="labelcad">Elemento Ponte Fixa</span><br>
-                    <input type="radio" name="trabalho" value="coroav"> <span class="labelcad">Coroa Vaneer</span><br>
-                    <input type="radio" name="trabalho" value="coroat"> <span class="labelcad">Coroa Total</span><br>
-                    <input type="radio" name="trabalho" value="coroa.j.p"> <span class="labelcad">Coroa Jaqueta Pura</span><br>
-                    <input type="radio" name="trabalho" value="r.m"> <span class="labelcad">R.M Fundida</span><br>
-                    <input type="radio" name="trabalho" value="nucleo.d"> <span class="labelcad">Núcleo Direto</span><br>
-                    <input type="radio" name="trabalho" value="nucleo.i"> <span class="labelcad">Núcleo Indireto</span><br>
-                    <input type="radio" name="trabalho" value="copiny.r"> <span class="labelcad">Copiny para Resina</span><br>
+                    <input type="radio" required name="trabalho" value="Elemento Ponte Fixa"> <span class="labelcad">Elemento Ponte Fixa</span><br>
+                    <input type="radio" name="trabalho" value="Coroa Vaneer"> <span class="labelcad">Coroa Vaneer</span><br>
+                    <input type="radio" name="trabalho" value="Coroa Total"> <span class="labelcad">Coroa Total</span><br>
+                    <input type="radio" name="trabalho" value="Coroa Jaqueta Pura"> <span class="labelcad">Coroa Jaqueta Pura</span><br>
+                    <input type="radio" name="trabalho" value="R.M Fundida"> <span class="labelcad">R.M Fundida</span><br>
+                    <input type="radio" name="trabalho" value="Núcleo Direto"> <span class="labelcad">Núcleo Direto</span><br>
+                    <input type="radio" name="trabalho" value="Núcleo Indireto"> <span class="labelcad">Núcleo Indireto</span><br>
+                    <input type="radio" name="trabalho" value="Copiny para Resina"> <span class="labelcad">Copiny para Resina</span><br>
             </div>        
             <div class="col-md-4">           
-                    <input type="radio" name="trabalho" value="copiny.c"> <span class="labelcad">Copiny Cerâmico</span><br>
-                    <input type="radio" name="trabalho" value="inlay"> <span class="labelcad">Inlay Onlay</span><br>
-                    <input type="radio" name="trabalho" value="elemento.p"> <span class="labelcad">Elemento Provisório Acrílico</span><br>
-                    <input type="radio" name="trabalho" value="ponto.d.s"> <span class="labelcad">Ponto de Solda</span><br>
-                    <input type="radio" name="trabalho" value="protese.t"> <span class="labelcad">Prótese Total (Detadura)</span><br>          
-                    <input type="radio" name="trabalho" value="ponto.m"> <span class="labelcad">Ponte Móvel (Roach Metal)</span><br>
-                    <input type="radio" name="trabalho" value="ponte.m"> <span class="labelcad">Ponte Móvel (R. parte Acrílica)</span><br>
-                    <input type="radio" name="trabalho" value="provisoria"> <span class="labelcad">Provisória (Perereca)</span><br>
+                    <input type="radio" name="trabalho" value="Copiny Cerâmico"> <span class="labelcad">Copiny Cerâmico</span><br>
+                    <input type="radio" name="trabalho" value="Inlay Onlay"> <span class="labelcad">Inlay Onlay</span><br>
+                    <input type="radio" name="trabalho" value="Elemento Provisório Acrílico"> <span class="labelcad">Elemento Provisório Acrílico</span><br>
+                    <input type="radio" name="trabalho" value="Ponto de Solda"> <span class="labelcad">Ponto de Solda</span><br>
+                    <input type="radio" name="trabalho" value="Prótese Total (Detadura)"> <span class="labelcad">Prótese Total (Detadura)</span><br>          
+                    <input type="radio" name="trabalho" value="Ponte Móvel (Roach Metal)"> <span class="labelcad">Ponte Móvel (Roach Metal)</span><br>
+                    <input type="radio" name="trabalho" value="Ponte Móvel (R. parte Acrílica)"> <span class="labelcad">Ponte Móvel (R. parte Acrílica)</span><br>
+                    <input type="radio" name="trabalho" value="Provisória (Perereca)"> <span class="labelcad">Provisória (Perereca)</span><br>
             </div>        
             <div class="col-md-4">          
-                    <input type="radio" name="trabalho" value="placa.c"> <span class="labelcad">Placa Clareamento</span><br>
-                    <input type="radio" name="trabalho" value="placa.b.a> <span class="labelcad">Placa Bruxismo Acrílica</span><br>
-                    <input type="radio" name="trabalho" value="placa.b.p"> <span class="labelcad">Placa Bruxismo Plastivac</span><br>
-                    <input type="radio" name="trabalho" value="vaz"> <span class="labelcad">Vaz-Gesso</span><br>
-                    <input type="radio" name="trabalho" value="consertos"> <span class="labelcad">Consertos</span><br>
-                    <input type="radio" name="trabalho" value="moldeira"> <span class="labelcad">Moldeira Individual de acrilico</span><br>
-                    <input type="radio" name="trabalho" value="montagem"> <span class="labelcad">Montagem no articulador</span>
+                    <input type="radio" name="trabalho" value="Placa Clareamento"> <span class="labelcad">Placa Clareamento</span><br>
+                    <input type="radio" name="trabalho" value="Placa Bruxismo Acrílica"> <span class="labelcad">Placa Bruxismo Acrílica</span><br>
+                    <input type="radio" name="trabalho" value="Placa Bruxismo Plastivac"> <span class="labelcad">Placa Bruxismo Plastivac</span><br>
+                    <input type="radio" name="trabalho" value="Vaz-Gesso"> <span class="labelcad">Vaz-Gesso</span><br>
+                    <input type="radio" name="trabalho" value="Consertos"> <span class="labelcad">Consertos</span><br>
+                    <input type="radio" name="trabalho" value="Moldeira Individual de Acrílico"> <span class="labelcad">Moldeira Individual de acrilico</span><br>
+                    <input type="radio" name="trabalho" value="Montagem no Articulador"> <span class="labelcad">Montagem no Articulador</span>
                  </div>
                  </div>
                  
@@ -211,7 +211,6 @@
                          </div>
                  
                  </div>
-                 
                  <div>
                     <br>
                      <label class="labelcad">Obs:</label>
@@ -225,6 +224,7 @@
              
          </div>        
         </div>
+
 
         <script src="js/script.js"></script>
         <!-- Imagem Mapeada -->

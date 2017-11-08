@@ -1,15 +1,3 @@
-<?php 
-
-include("conecta.php");
-
-$filtroESTADO = $_GET["estado"];
-
-$consulta = "SELECT nome, email, cidade FROM login WHERE estado = '$filtroESTADO'";
-$con = $conexao ->query($consulta) or die ($con->error);
-
-
-
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -70,7 +58,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                     </li>
                     
                     <li>
-                        <a href="#">
+                        <a href="trabalhosProtetico.php">
                             <i class="glyphicon glyphicon-list"></i>
                             Procurar Trabalhos
                         </a>
@@ -94,43 +82,18 @@ $con = $conexao ->query($consulta) or die ($con->error);
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                
+                               
                             </ul>
                         </div>
                     </div>
                 </nav>
 
-                <h2>Pagina Principal</h2>
+                <h2>Descrição de Prótese</h2>
 
+                <h3>Trabalho</h3>
 
-                <div class="line"></div>
+                
 
-                <h2>Trabalhos Disponiveis</h2>
-                <p>
-                     <table>
-                    <tr>
-                        <td>trabalho</td>
-                        <td style="padding-left: 20px;">E-mail</td>
-                        <td style="padding-left: 20px;">Cidade</td>
-                    </tr>
-                    <?php while($dado = $con->fetch_array()){?>
-                    <tr>
-                        <td><?php echo $dado["nome"];?></td>
-                        <td style="padding-left: 20px;"><?php echo $dado["email"];?></td>
-                        <td style="padding-left: 20px;"><?php echo $dado["cidade"];?></td>
-                    </tr>
-                    <?php } ?>
-                </table>
-                </p>
-
-                <div class="line"></div>
-
-                <h2>Lorem Ipsum Dolor</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                <div class="line"></div>
-
-                <h3>Lorem Ipsum Dolor</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
         </div>
