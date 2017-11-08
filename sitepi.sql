@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Nov-2017 às 13:51
+-- Generation Time: 08-Nov-2017 às 02:19
 -- Versão do servidor: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -72,22 +72,19 @@ CREATE TABLE `pedidos` (
   `obs` varchar(500) NOT NULL,
   `dentista` varchar(500) NOT NULL,
   `disponibilidade` varchar(400) NOT NULL,
-  `protetico_resp` varchar(500) NOT NULL
+  `protetico_resp` varchar(500) NOT NULL,
+  `valor_medio` int(10) NOT NULL,
+  `estado` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`, `dentista`, `disponibilidade`, `protetico_resp`) VALUES
-(1, 'e.p.f', 'masculino', '18', '13', '1B', 'Sem Observacoes', '', '', ''),
-(4, 'coroa.j.p', 'feminino', '25', '42', '2B', '-', '', '', ''),
-(8, 'nucleo.d', 'feminino', '18', '27', '20', '', '', '', ''),
-(9, 'nucleo.d', 'feminino', '18', '17', '2b', '', '', '', ''),
-(10, 'copiny.r', 'masculino', '23', '18', '2n', '', '', '', ''),
-(11, 'r.m', 'feminino', '23', '18', '32', '', 'joao', '', ''),
-(12, 'coroav', 'feminino', '32', '17', '2b', '-', 'ruan', '', ''),
-(13, 'nucleo.i', 'feminino', '25', '16', '2b', '', 'ruan', 'Aberto', '');
+INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`, `dentista`, `disponibilidade`, `protetico_resp`, `valor_medio`, `estado`) VALUES
+(11, 'r.m', 'feminino', '23', '18', '32', '', 'joao', '', '', 0, ''),
+(12, 'coroav', 'feminino', '32', '17', '2b', '-', 'ruan', '', '', 0, ''),
+(13, 'nucleo.i', 'feminino', '25', '16', '2b', '', 'ruan', 'Aberto', '', 0, '');
 
 --
 -- Indexes for dumped tables
