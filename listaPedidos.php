@@ -153,10 +153,10 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         <td style="padding-bottom: 10px;"><?php echo $dado["protetico_resp"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["disponibilidade"];?></td>
 
-                        <td><button <?php if ($dado["disponibilidade"] == "Andamento") echo "disabled" ?> type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Editar</button></td>
+                        <td><button <?php if ($dado["disponibilidade"] == "Andamento") echo "disabled" ?> type="button" class="btn btn-info" data-toggle="modal" data-target="#alterarMODAL">Editar</button></td>
 
                          <!-- Modal -->
-                         <div class="modal fade" id="myModal" role="dialog">
+                         <div class="modal fade" id="alterarMODAL" role="dialog">
                            <div class="modal-dialog">
                            
                              <!-- Conteudo do Modal -->
@@ -197,8 +197,33 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                  <p>Número do dente</p><input name="num_dente" value="<?php echo $dado["num_dente"]?>">
                                  <p>Cor do dente</p><input name="cor_dente" value="<?php echo $dado["cor_dente"]?>">
                                <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar Pedido</button>
-                                <button type="submit" class="btn btn-default" onclick="alterado_Sucesso()" >Salvar Alterações</button>
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#excluirMODAL">Cancelar Pedido</button>
+
+                                        <div class="modal fade" id="excluirMODAL" role="dialog">
+                                            <div class="modal-dialog modal-sm">
+                                            
+                                              <!-- Modal content-->
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                  <h4 class="modal-title" style="text-align: left;" >Excluir Pedido</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <p style="text-align: left;">Deseja realmente apagar esse pedido?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button href="#alterarMODAL" type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                                                    <form action="deletarPedido.php?id='<?php echo $dado["id"]?>' " method="get">
+
+                                                        <button href="#alterarMODAL" type="submit" class="btn btn-success" data-dismiss="modal">Sim</button>
+                                                    </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+
+
+                                <button type="submit" class="btn btn-success" onclick="alterado_Sucesso()" >Salvar Alterações</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                                 </form>
                                </div>
