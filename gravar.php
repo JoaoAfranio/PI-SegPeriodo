@@ -1,5 +1,6 @@
 <?php
 	include("conecta.php");
+	session_start();
 
 	$recebeEMAIL = $_GET["email"];
 	$recebeLOGIN = $_GET["login"];
@@ -23,4 +24,5 @@
 
 	header("location:index.html");
 
+$_SESSION["nome"] = $recebeNOME
 ?>

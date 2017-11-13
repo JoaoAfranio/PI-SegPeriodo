@@ -1,34 +1,20 @@
 <?php 
   include("conecta.php");
 
-  session_start();
+  $user = $_POST['user'];
+  $entrar = $_POST['entrar'];
+  $pass = $_POST['pass'];
 
-
-  $login = $_POST['login'];
-  $senha = $_POST['senha'];
-
-        
-  $verifica_login = mysqli_query($conexao, "SELECT * FROM login WHERE login = '$login' AND senha = '$senha'");
-  
-  $verifica_trabalho =  mysqli_query($conexao, "SELECT * FROM login WHERE login = '$login' AND trabalho = 'dentista'");
-
-    if (mysqli_num_rows($verifica_login)<=0){
-          echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.html';</script>";
-            unset ($_SESSION['login']);
-            unset ($_SESSION['senha']);
-        }else{  
-          
-          $_SESSION['login'] = $login;
-          $_SESSION['senha'] = $senha;
-
-          if (mysqli_num_rows($verifica_trabalho)<=0){
-          header('location:mainProtetico.php');
+    if (isset($entrar)) {
             
-          }else{
-            header('location:mainDentista.php');
-          }
-          
-
+      $verifica = mysqli_query($conexao, "SELECT * FROM login WHERE login = '$user' AND senha = '$pass'") or die("erro ao selecionar");
+        if (mysqli_num_rows($verifica)<=0){
+          echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.html';</script>";
+          die();
+        }else{  
+          setcookie("login",$login);
+          header("Location:principal.php");
           
         }
+    }  
 ?>

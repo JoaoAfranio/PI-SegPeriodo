@@ -5,9 +5,7 @@ include("conecta.php");
 $filtroESTADO = $_GET["estado"];
 
 $consulta = "SELECT nome, email, cidade FROM login WHERE estado = '$filtroESTADO'";
-$con = $conexao ->query($consulta) or die ($con->error);
-
-
+$con = $conexao ->query($consulta) or die ($mysqli->error);
 
 ?>
 <html>
@@ -22,33 +20,6 @@ $con = $conexao ->query($consulta) or die ($con->error);
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="css/sidebar.css">
-
-        <style type="text/css">
-            #tabelaCustom {
-                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            #tabelaCustom td, #tabelaCustom th {
-                border: 1px solid #ddd;
-                padding: 8px;
-            }
-
-            #tabelaCustom tr:nth-child(even){background-color: #f2f2f2;}
-
-            #tabelaCustom tr:hover {background-color: #ddd;}
-
-            #tabelaCustom th {
-                padding-top: 12px;
-                padding-bottom: 12px;
-                text-align: left;
-                background-color: #12675e;
-                color: white;
-            }
-
-        </style>
-
     </head>
     <body>
     <style type="text/css"></style>
@@ -81,13 +52,13 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         </a>
                     </li>
                     <li>
-                        <a href="pedidosDentista.php">
+                        <a href="pedidosDentista.html">
                             <i class="glyphicon glyphicon-briefcase"></i>
                             Fazer Pedidos
                         </a>
                     </li>
                     <li>
-                        <a href="listaPedidos.php">
+                        <a href="#">
                             <i class="glyphicon glyphicon-list"></i>
                             Listar Pedidos
                         </a>
@@ -149,16 +120,16 @@ $con = $conexao ->query($consulta) or die ($con->error);
                             <option value="SE">Sergipe</option>
                             <option value="TO">Tocantins</option>
                     </select>
-                    <input onclick="pesquisa_Sucesso()" type="submit"/>
+                    <input type="submit"/>
                 </form>
                 </p>
                 <div class="line"></div>
                 
-                <table id="tabelaCustom">
+                <table>
                 	<tr>
-                		<th>Nome</th>
-                		<th style="padding-left: 20px;">E-mail</th>
-                		<th style="padding-left: 20px;">Cidade</th>
+                		<td>Nome</td>
+                		<td style="padding-left: 20px;">E-mail</td>
+                		<td style="padding-left: 20px;">Cidade</td>
                 	</tr>
                 	<?php while($dado = $con->fetch_array()){?>
                 	<tr>
@@ -171,7 +142,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
 
                 <div class="line"></div>
 
-               <p>
+                <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -192,13 +163,6 @@ $con = $conexao ->query($consulta) or die ($con->error);
          <!-- Bootstrap Js CDN -->
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-         <script type="text/javascript">
-             function pesquisa_Sucesso(){
-                
-               alert("Pesquisa realizada com sucesso!");
-
-             }
-         </script>
 
          <script type="text/javascript">
              $(document).ready(function () {

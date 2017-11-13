@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Nov-2017 às 02:19
+-- Generation Time: 30-Out-2017 às 09:50
 -- Versão do servidor: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -69,22 +69,16 @@ CREATE TABLE `pedidos` (
   `idade_paciente` varchar(50) NOT NULL,
   `num_dente` varchar(50) NOT NULL,
   `cor_dente` varchar(50) NOT NULL,
-  `obs` varchar(500) NOT NULL,
-  `dentista` varchar(500) NOT NULL,
-  `disponibilidade` varchar(400) NOT NULL,
-  `protetico_resp` varchar(500) NOT NULL,
-  `valor_medio` int(10) NOT NULL,
-  `estado` varchar(500) NOT NULL
+  `obs` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`, `dentista`, `disponibilidade`, `protetico_resp`, `valor_medio`, `estado`) VALUES
-(11, 'r.m', 'feminino', '23', '18', '32', '', 'joao', '', '', 0, ''),
-(12, 'coroav', 'feminino', '32', '17', '2b', '-', 'ruan', '', '', 0, ''),
-(13, 'nucleo.i', 'feminino', '25', '16', '2b', '', 'ruan', 'Aberto', '', 0, '');
+INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`) VALUES
+(1, 'e.p.f', 'masculino', '18', '13', '1B', 'Sem Observacoes'),
+(4, 'coroa.j.p', 'feminino', '25', '42', '2B', '-');
 
 --
 -- Indexes for dumped tables
@@ -116,7 +110,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
