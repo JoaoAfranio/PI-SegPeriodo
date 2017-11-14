@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Out-2017 às 09:50
--- Versão do servidor: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Generation Time: 14-Nov-2017 às 16:07
+-- Versão do servidor: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -69,16 +69,23 @@ CREATE TABLE `pedidos` (
   `idade_paciente` varchar(50) NOT NULL,
   `num_dente` varchar(50) NOT NULL,
   `cor_dente` varchar(50) NOT NULL,
-  `obs` varchar(500) NOT NULL
+  `obs` varchar(500) NOT NULL,
+  `dentista` varchar(500) NOT NULL,
+  `disponibilidade` varchar(400) NOT NULL,
+  `protetico_resp` varchar(500) NOT NULL,
+  `valor_medio` int(10) NOT NULL,
+  `estado` varchar(500) NOT NULL,
+  `data_entrega` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`) VALUES
-(1, 'e.p.f', 'masculino', '18', '13', '1B', 'Sem Observacoes'),
-(4, 'coroa.j.p', 'feminino', '25', '42', '2B', '-');
+INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`, `dentista`, `disponibilidade`, `protetico_resp`, `valor_medio`, `estado`, `data_entrega`) VALUES
+(11, 'r.m', 'feminino', '23', '18', '32', '', 'joao', '', '', 0, 'MG', '0000-00-00'),
+(12, 'coroav', 'feminino', '32', '17', '2b', '-', 'ruan', '', '', 0, '', '0000-00-00'),
+(13, 'nucleo.i', 'feminino', '25', '16', '2b', '', 'ruan', 'Aberto', '', 0, '', '0000-00-00');
 
 --
 -- Indexes for dumped tables
@@ -110,7 +117,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

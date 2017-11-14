@@ -2,28 +2,37 @@
 
 include("conecta.php");
 
-$filtroESTADO = $_GET["estado"];
+session_start();
+        
+        if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+        {
+            unset($_SESSION['login']);
+            unset($_SESSION['senha']);
+            header('location:index.html');
+        }
 
-$consulta = "SELECT nome, email, cidade FROM login WHERE estado = '$filtroESTADO'";
+
+$pesquisaEstado = $_GET['estado'];
+
+
+$consulta = "SELECT estado, dentista, trabalho, valor_medio, data_entrega FROM pedidos WHERE estado = '$pesquisaEstado'";
 $con = $conexao ->query($consulta) or die ($con->error);
 
 
-
 ?>
-<html>
-    <head>
+
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Listar Proteticos</title>
+        <title>Collapsible sidebar using Bootstrap 3</title>
 
          <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="css/sidebar.css">
-
-        <style type="text/css">
+         <style type="text/css">
             #tabelaCustom {
                 font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
                 border-collapse: collapse;
@@ -48,10 +57,9 @@ $con = $conexao ->query($consulta) or die ($con->error);
             }
 
         </style>
-
     </head>
     <body>
-    <style type="text/css"></style>
+
 
 
         <div class="wrapper">
@@ -63,13 +71,13 @@ $con = $conexao ->query($consulta) or die ($con->error);
                 </div>
 
                 <ul class="list-unstyled components">
-                    <li>
+                    <li class="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
                             <i class="glyphicon glyphicon-home"></i>
                             Home
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="#">Home 1</a></li>
+                            <li><a href="mainProtetico.php">Home 1</a></li>
                             <li><a href="#">Home 2</a></li>
                             <li><a href="#">Home 3</a></li>
                         </ul>
@@ -80,24 +88,21 @@ $con = $conexao ->query($consulta) or die ($con->error);
                             Perfil
                         </a>
                     </li>
+                    
                     <li>
-                        <a href="pedidosDentista.php">
-                            <i class="glyphicon glyphicon-briefcase"></i>
-                            Fazer Pedidos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="listaPedidos.php">
+                        <a href="#">
                             <i class="glyphicon glyphicon-list"></i>
-                            Listar Pedidos
+                            Procurar Trabalhos
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="listaProtetico.php?estado=">
-                            <i class="glyphicon glyphicon-send"></i>
-                            Listar Protéticos
+                    
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-list"></i>
+                            Meus Trabalhos
                         </a>
                     </li>
+
                 </ul>
             </nav>
 
@@ -113,12 +118,18 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                 <span>Abrir Menu</span>
                             </button>
                         </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                
+                            </ul>
+                        </div>
                     </div>
                 </nav>
 
-                <h2>Listar Protéticos</h2>
-                <p>Procurar por protéticos
-                 <form  action="listaProtetico.php?estado="  method="get">   
+                <h2>Listar Trabalhos</h2>
+                <p>Procurar por região
+                 <form  action="trabalhosProtetico.php?estado="  method="get">   
                     <select name="estado">
                             <option value=""></option>
                             <option value="AC">Acre</option>
@@ -149,35 +160,39 @@ $con = $conexao ->query($consulta) or die ($con->error);
                             <option value="SE">Sergipe</option>
                             <option value="TO">Tocantins</option>
                     </select>
-                    <input onclick="pesquisa_Sucesso()" type="submit"/>
+                    <button class="btn btn-info" onclick="pesquisa_Sucesso()" type="submit">Procurar</button>
                 </form>
                 </p>
+               
                 <div class="line"></div>
                 
                 <table id="tabelaCustom">
-                	<tr>
-                		<th>Nome</th>
-                		<th style="padding-left: 20px;">E-mail</th>
-                		<th style="padding-left: 20px;">Cidade</th>
-                	</tr>
-                	<?php while($dado = $con->fetch_array()){?>
-                	<tr>
-                		<td><?php echo $dado["nome"];?></td>
-                		<td style="padding-left: 20px;"><?php echo $dado["email"];?></td>
-                		<td style="padding-left: 20px;"><?php echo $dado["cidade"];?></td>
-                	</tr>
-                	<?php } ?>
+                    <tr>
+                        <th>Trabalho</th>
+                        <th>Data de entrega</th>
+                        <th>Preço</th>
+                        <th>Estado</th>
+
+                    </tr>
+
+                    <?php while($dado = $con->fetch_array()){?>
+                    <tr>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["trabalho"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["data_entrega"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["valor_medio"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["estado"];?></td>
+                        <td><button  type="button" class="btn btn-info" data-toggle="modal" data-target="#alterarMODAL<?php echo $dado["id"]?>">Visuallizar Pedido</button></td>
+                       
+                       </tr>
+                    <?php } ?> 
                 </table>
+
 
                 <div class="line"></div>
 
                <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                proident, sunt in culpa qui officia deserunt moll
                 </p>
 
             </div>
