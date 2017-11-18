@@ -63,6 +63,12 @@
                             Procurar Trabalhos
                         </a>
                     </li>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-list"></i>
+                            Meus Trabalhos
+                        </a>
+                    </li>
                     
                 </ul>
             </nav>

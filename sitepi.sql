@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Nov-2017 às 16:07
+-- Generation Time: 18-Nov-2017 às 17:26
 -- Versão do servidor: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -83,9 +83,8 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`, `dentista`, `disponibilidade`, `protetico_resp`, `valor_medio`, `estado`, `data_entrega`) VALUES
-(11, 'r.m', 'feminino', '23', '18', '32', '', 'joao', '', '', 0, 'MG', '0000-00-00'),
-(12, 'coroav', 'feminino', '32', '17', '2b', '-', 'ruan', '', '', 0, '', '0000-00-00'),
-(13, 'nucleo.i', 'feminino', '25', '16', '2b', '', 'ruan', 'Aberto', '', 0, '', '0000-00-00');
+(11, 'r.m', 'feminino', '28', '18', '32', '', 'joao', '', '', 0, 'MG', '0000-00-00'),
+(13, 'nucleo.i', 'feminino', '25', '16', '2b', '', 'ruan', '', '', 0, '', '0000-00-00');
 
 --
 -- Indexes for dumped tables
@@ -111,7 +110,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pedidos`

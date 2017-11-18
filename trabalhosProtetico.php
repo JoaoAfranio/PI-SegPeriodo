@@ -12,10 +12,12 @@ session_start();
         }
 
 
+
 $pesquisaEstado = $_GET['estado'];
 
 
-$consulta = "SELECT estado, dentista, trabalho, valor_medio, data_entrega FROM pedidos WHERE estado = '$pesquisaEstado'";
+$consulta = "SELECT id, trabalho, obs, sexo,idade_paciente, data_entrega, valor_medio, estado, dentista, num_dente,
+cor_dente FROM pedidos WHERE estado = '$pesquisaEstado'";
 $con = $conexao ->query($consulta) or die ($con->error);
 
 
@@ -26,7 +28,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Collapsible sidebar using Bootstrap 3</title>
+        <title>Trabalhos Protetico</title>
 
          <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -90,7 +92,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                     </li>
                     
                     <li>
-                        <a href="#">
+                        <a href="/PI-SegPeriodo/trabalhosProtetico.php?estado=">
                             <i class="glyphicon glyphicon-list"></i>
                             Procurar Trabalhos
                         </a>
@@ -168,21 +170,71 @@ $con = $conexao ->query($consulta) or die ($con->error);
                 
                 <table id="tabelaCustom">
                     <tr>
+                        <th>Nº Pedido</th>
                         <th>Trabalho</th>
                         <th>Data de entrega</th>
                         <th>Preço</th>
                         <th>Estado</th>
+                        <th>Dentista Responsável</th>
 
                     </tr>
 
                     <?php while($dado = $con->fetch_array()){?>
                     <tr>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["id"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["trabalho"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["data_entrega"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["valor_medio"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["estado"];?></td>
-                        <td><button  type="button" class="btn btn-info" data-toggle="modal" data-target="#alterarMODAL<?php echo $dado["id"]?>">Visuallizar Pedido</button></td>
-                       
+                        <td style="padding-bottom: 10px;"><?php echo $dado["dentista"];?></td>
+
+                       <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#alterarMODAL<?php echo $dado["id"]?>">Visualizar Pedido</button></td>
+                        <!-- Modal -->
+                        <div class="modal fade" id="alterarMODAL<?php echo $dado["id"]?>" role="dialog">
+                           <div class="modal-dialog">
+                           
+                             <!-- Conteudo do Modal -->
+                             <div class="modal-content">
+                               <div class="modal-header">
+                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                 <h4 class="modal-title">Pedido</h4>
+                               </div>
+                               <div class="modal-body">
+                                <form action="visualizarpedido.php" method="get">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p><b>Nº do pedido</b></p><p><input name="id" value="<?php echo $dado["id"]?>" type="hidden"><?php echo $dado["id"]?></p>
+                                            <p><b>Trabalho</p></b><p><?php echo $dado["trabalho"]?></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p><b>Observação</b></p><p><?php echo $dado["obs"]?></p>
+                                        </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                 <p><b>Sexo<b></p>
+                                    <p><?php echo $dado["sexo"]?><p>   
+                                 <p><b>Idade</b></p><p><?php echo $dado["idade_paciente"]?></p>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <p><b>Data de Entrega</b></p>
+                                    <p><?php echo $dado["data_entrega"]?></p>
+                                    <p><b>Preço</b></p>
+                                    <p><?php echo $dado["valor_medio"]?></p>
+                                    </div>
+                                </div>
+                                 <p><b>Número do dente</b></p><p><?php echo $dado["num_dente"]?></p>
+                                 <p><b>Cor do dente</b></p><p><?php echo $dado["cor_dente"]?></p>
+                               <div class="modal-footer">
+                                <button  type="submit" class="btn btn-success" onclick="alterado_Sucesso()">Aceitar Pedido</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                </form>
+                               </div>
+                             </div>
+                             
+                           </div>
+                         </div>
+
                        </tr>
                     <?php } ?> 
                 </table>
@@ -191,6 +243,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                 <div class="line"></div>
 
                <p>
+
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 proident, sunt in culpa qui officia deserunt moll
                 </p>
@@ -201,16 +254,15 @@ $con = $conexao ->query($consulta) or die ($con->error);
 
 
 
-
         <!-- jQuery CDN -->
          <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
          <!-- Bootstrap Js CDN -->
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
          <script type="text/javascript">
-             function pesquisa_Sucesso(){
+             function alterado_Sucesso(){
                 
-               alert("Pesquisa realizada com sucesso!");
+               alert("Pedido Aceito!");
 
              }
          </script>

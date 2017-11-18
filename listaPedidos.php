@@ -153,10 +153,10 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         <td style="padding-bottom: 10px;"><?php echo $dado["protetico_resp"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["disponibilidade"];?></td>
 
-                        <td><button <?php if ($dado["disponibilidade"] == "Andamento") echo "disabled" ?> type="button" class="btn btn-info" data-toggle="modal" data-target="#alterarMODAL<?php echo $dado["id"]?>">Editar</button></td>
+                        <td><button <?php if ($dado["disponibilidade"] == "Em Andamento") echo "disabled" ?> type="button" class="btn btn-info" data-toggle="modal" data-target="#alterarMODAL<?php echo $dado["id"]?>">Editar</button></td>
                         <form action="deletarPedido.php" method="get">
                         <input type="hidden" name="id" value="<?=$dado['id']?>">
-                        <td><button <?php if ($dado["disponibilidade"] == "Andamento") echo "disabled" ?> type="submit" onclick="deletado_Sucesso()" class="btn btn-danger">Apagar</button></td>
+                        <td><button <?php if ($dado["disponibilidade"] == "Em Andamento") echo "disabled" ?> type="submit" onclick="deletado_Sucesso()" class="btn btn-danger">Apagar</button></td>
                         </form>
                          <!-- Modal -->
                          <div class="modal fade" id="alterarMODAL<?php echo $dado["id"]?>" role="dialog">

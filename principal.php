@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <?php
-include("gravar.php");
+include("conecta.php");
+ 
+        session_start();
+        if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+        {
+            unset($_SESSION['login']);
+            unset($_SESSION['senha']);
+            header('location:index.html');
+            }
+
+    $login = $_SESSION['login'];
+	
+	$consulta = "SELECT nome FROM login WHERE login = '$login'";
+	$con = $conexao ->query($consulta) or die ($con->error);
+	$dado = $con->fetch_array();
+	$pessoa = $dado["nome"];   
 ?>
 <html>
 <head>
@@ -20,7 +35,7 @@ include("gravar.php");
 
 	<div>
 	<?php 
-  		echo "$_SESSION["nome"] seja bem vindo(a)!";
+  		echo "$pessoa seja bem vindo(a)!";
 	?>
 </div>
 </div>
