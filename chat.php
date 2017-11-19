@@ -1,0 +1,2 @@
+<button hidden="" <?php if (($dado["disponibilidade"] == "Pronto") or ($dado["disponibilidade"] == "Em Andamento")) echo "type='button' class='btn btn-info' data-toggle='modal' data-target='#alterarMODAL"?><?php echo $dado["id"]?>'>Mensagem</button>
+ 

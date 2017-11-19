@@ -17,7 +17,7 @@
 	$protetico = $dado["nome"];
 	$recebeID = $_GET["id"];
 	
-	mysqli_query($conexao, "UPDATE pedidos SET disponibilidade ='Em Andamento', protetico_resp = '$protetico' WHERE id = '$recebeID'") or die(mysqli_error($conexao));
+	mysqli_query($conexao, "UPDATE pedidos SET disponibilidade ='Em Andamento', protetico_resp = '$protetico', disponibilidade2 = 'Aceito' WHERE id = '$recebeID'") or die(mysqli_error($conexao));
 
 	header("location:trabalhosProtetico.php?estado=");
 

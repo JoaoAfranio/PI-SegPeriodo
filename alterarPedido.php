@@ -13,9 +13,12 @@
 	
 	$recebeOBS = $_GET["obs"];
 
+	$recebeData = $_GET["data_entrega"];
+	$recebeValor = $_GET["valor_medio"];
+
 
 	mysqli_query($conexao, "UPDATE pedidos SET sexo='$recebeSEXO',trabalho='$recebeTRABALHO',idade_paciente='$recebeIDADE',obs='$recebeOBS',num_dente='$recebeNUM_DENTE',
-					cor_dente='$recebeCOR_DENTE' WHERE id='$recebeID' ") or die(mysqli_error($conexao));
+					cor_dente='$recebeCOR_DENTE', data_entrega='$recebeData', valor_medio='$recebeValor'   WHERE id='$recebeID' ") or die(mysqli_error($conexao));
 
 	
 

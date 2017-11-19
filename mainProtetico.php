@@ -44,10 +44,8 @@
                             <i class="glyphicon glyphicon-home"></i>
                             Home
                         </a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="#">Home 1</a></li>
-                            <li><a href="#">Home 2</a></li>
-                            <li><a href="#">Home 3</a></li>
+                       <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a href="mainProtetico.php">Página Inicial</a></li>
                         </ul>
                     </li>
                     <li>
@@ -64,8 +62,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-list"></i>
+                        <a href="visualizarTrabalho.php">
+                            <i class="glyphicon glyphicon-briefcase"></i>
                             Meus Trabalhos
                         </a>
                     </li>
@@ -74,7 +72,7 @@
             </nav>
 
             <!-- Page Content Holder -->
-            <div id="content">
+            <div id="content" style="width: 100%;">
 
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">

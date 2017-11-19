@@ -13,29 +13,34 @@ session_start();
 
 
 $logado = $_SESSION['login'];
-$consulta1 = "SELECT nome FROM login WHERE login = '$logado'";
+
+$consulta1 = "SELECT * FROM login WHERE login = '$logado'";
 $con1 = $conexao ->query($consulta1) or die ($con1->error);
 $dado1 = $con1->fetch_array();
 $nome = $dado1["nome"];
 
-$consulta = "SELECT * FROM pedidos WHERE dentista = '$nome'";
+
+$consulta = "SELECT * FROM pedidos WHERE protetico_resp = '$nome' AND disponibilidade2 = 'Aceito'";
 $con = $conexao ->query($consulta) or die ($con->error);
+
 
 
 ?>
 <html>
     <head>
+        
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Listar Proteticos</title>
-         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <!-- CSS da SIDEBAR-->
-        <link rel="stylesheet" href="css/sidebar.css">
+        <title>Visualisar Trabalhos</title>
 
-        <style type="text/css">
+         <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="css/sidebar.css">
+         <style type="text/css">
             #tabelaCustom {
                 font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
                 border-collapse: collapse;
@@ -58,13 +63,12 @@ $con = $conexao ->query($consulta) or die ($con->error);
                 background-color: #12675e;
                 color: white;
             }
-
+            
         </style>
-
-
-
     </head>
     <body>
+
+
 
         <div class="wrapper">
             <!-- Sidebar Holder -->
@@ -75,13 +79,13 @@ $con = $conexao ->query($consulta) or die ($con->error);
                 </div>
 
                 <ul class="list-unstyled components">
-                    <li>
+                    <li class="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
                             <i class="glyphicon glyphicon-home"></i>
                             Home
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="mainDentista.php">Página Inicial</a></li>
+                            <li><a href="mainProtetico.php">Página Inicial</a></li>
                         </ul>
                     </li>
                     <li>
@@ -90,24 +94,21 @@ $con = $conexao ->query($consulta) or die ($con->error);
                             Perfil
                         </a>
                     </li>
+                    
                     <li>
-                        <a href="pedidosDentista.php">
-                            <i class="glyphicon glyphicon-briefcase"></i>
-                            Fazer Pedidos
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="listaPedidos.php">
+                        <a href="trabalhosProtetico.php?estado=">
                             <i class="glyphicon glyphicon-list"></i>
-                            Listar Pedidos
+                            Procurar Trabalhos
                         </a>
                     </li>
+                    
                     <li>
-                        <a href="listaProtetico.php?estado=">
-                            <i class="glyphicon glyphicon-send"></i>
-                            Listar Protéticos
+                        <a href="visualizarTrabalho.php">
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                            Meus Trabalhos
                         </a>
                     </li>
+
                 </ul>
             </nav>
 
@@ -115,7 +116,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
             <div id="content" style="width: 100%;">
 
                 <nav class="navbar navbar-default">
-                    <div class="container-fluid">
+                    <div class="container-fluid" >
 
                         <div class="navbar-header">
                             <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
@@ -123,41 +124,50 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                 <span>Abrir Menu</span>
                             </button>
                         </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                
+                            </ul>
+                        </div>
                     </div>
                 </nav>
 
-                <h2>Listar meus pedidos</h2>
+                <h2>Meus Trabalhos</h2>
                 <div class="line"></div>
                 
                 <table id="tabelaCustom">
-                	<tr>
+                    <tr>
                         
-                		<th>Nº</th>
+                        <th>Nº</th>
                         <th>Tipo</th>
                         <th>Sexo do paciente</th>
                         <th>Idade do paciente</th>
                         <th>Número do dente</th>
                         <th>Cor do Dente</th>
-                        <th>Protético Responsável</th>
-                        <th>Status do Pedido</th>
-                	</tr>
+                        <th>Dentista</th>
+                        <th>Valor</th>
+                    </tr>
 
-                	<?php while($dado = $con->fetch_array()){?>
-                	<tr>
+                    <?php while($dado = $con->fetch_array()){?>
+                   
+                    <tr>
                         
-                		<td style="padding-bottom: 10px;"><?php echo $dado["id"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["id"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["trabalho"];?></td>
-                		<td style="padding-bottom: 10px;"><?php echo $dado["sexo"];?></td>
-                		<td style="padding-bottom: 10px;"><?php echo $dado["idade_paciente"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["sexo"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado["idade_paciente"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["num_dente"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["cor_dente"];?></td>
-                        <td style="padding-bottom: 10px;"><?php echo $dado["protetico_resp"];?></td>
-                        <td style="padding-bottom: 10px;"><?php echo $dado["disponibilidade"];?></td>
-
-                        <td><button hidden="" <?php if (($dado["disponibilidade"] != "Pronto") and ($dado["disponibilidade"] != "Em Andamento")) echo "type='button' class='btn btn-info' data-toggle='modal' data-target='#alterarMODAL"?><?php echo $dado["id"]?>'>Editar</button>
-                            <button hidden="" <?php if (($dado["disponibilidade"] == "Pronto") or ($dado["disponibilidade"] == "Em Andamento")) echo "type='button' class='btn btn-info' data-toggle='modal' data-target='#alterarMODAL"?><?php echo $dado["id"]?>'>Visualizar</button>
-
-                             <!-- Modal -->
+                        <td style="padding-bottom: 10px;"><?php echo $dado["dentista"];?></td>
+                        <td style="padding-bottom: 10px;">R$<?php echo $dado["valor_medio"];?></td>
+                        <td><button  type="button" class="btn btn-info" data-toggle="modal" data-target="#alterarMODAL<?php echo $dado["id"]?>">Vizualizar</button></td>
+                      
+                       <form action="deletarPedido2.php" method="get">
+                        <input type="hidden" name="id" value="<?php echo $dado['id'] ?>">
+                        <td><button hidden=""<?php if ($dado["disponibilidade"] != "Pronto") echo "type='submit' onclick='deletado_Sucesso()' class='btn btn-danger'"?> >Apagar</button></td>
+                        </form>
+                         <!-- Modal -->
                         <div class="modal fade" id="alterarMODAL<?php echo $dado["id"]?>" role="dialog">
                            <div class="modal-dialog">
                            
@@ -195,68 +205,32 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                  <p><b>Cor do dente</b></p><p><?php echo $dado["cor_dente"]?></p>
                              </div>
 
-                             <div class="modal-footer">
-                                <button hidden="" <?php if (($dado["disponibilidade"] == "Pronto") and ($dado["disponibilidade"] == "Em Andamento")) echo "type='submit' class='btn btn-success' onclick='alterado_Sucesso()'"?>>Enviar </button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                </form>
-                            </div>
+                            <div class="line"></div>
+                        <h3 align="center">Endereço</h3>
+                          <div class="line"></div>
 
-                        </td>
+                         <div class="row">
 
-                        <form action="deletarPedido.php" method="get">
-                        <input type="hidden" name="id" value="<?=$dado['id']?>">
-                        <td><button hidden=""<?php if (($dado["disponibilidade"] != "Pronto") and ($dado["disponibilidade"] != "Em Andamento")) echo "type='submit' onclick='deletado_Sucesso()' class='btn btn-danger'"?> >Apagar</button>
-
-
-
-                        </td>
-
-
-
-                        </form>
-                         <!-- Modal -->
-                         <div class="modal fade" <?php if (($dado["disponibilidade"] != "Pronto") and ($dado["disponibilidade"] != "Em Andamento")) echo "id='alterarMODAL"?><?php echo $dado["id"]?>' " role="dialog">
-                           <div class="modal-dialog">
-                           
-                             <!-- Conteudo do Modal -->
-                             <div class="modal-content">
-                               <div class="modal-header">
-                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                 <h4 class="modal-title">Editar Informações</h4>
-                               </div>
-                               <div class="modal-body">
-                                <form action="alterarPedido.php" method="get">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <p>Nº do pedido</p><input name="id" value="<?php echo $dado["id"]?>">
-                                            <p>Trabalho</p><input name="trabalho" value="<?php echo $dado["trabalho"]?>">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p>Observação</p><textarea name="obs" value="<?php echo $dado["obs"]?>" rows="4" cols="50"></textarea>
-                                        </div>
-                                    </div>
-                                <div class="row">
                                     <div class="col-md-4">
-                                 <p>Sexo</p>
-                                         <select name="sexo">
-                                         <option><?php echo $dado["sexo"]?></option>
-                                         <?php if($dado["sexo"] == "Feminino"){echo "<option value='Masculino'>Masculino</option>";}
-                                                else{echo "<option value='Feminino'>Feminino</option>";} 
-                                         ?>
-                                         </select>
-
-
-                                 <p>Idade</p><input name="idade_pedido" value="<?php echo $dado["idade_paciente"]?>">
+                                <p><b>Estado</b></p><p><?php echo $dado1["estado"]?></p>
+                                <p><b>Cidade</b></p><p><?php echo $dado1["cidade"]?></p>
+                                <p><b>Cep</b></p><p><?php echo $dado1["CEP"]?></p>
                                     </div>
+
                                     <div class="col-md-4">
-                                    <p>Data de Entrega</p><input type="date" name="data_entrega" value="<?php echo $dado["data_entrega"]?>">
-                                    <p>Preço</p><input checked="R$" name="valor_medio" value="<?php echo $dado["valor_medio"]?>">
+                                <p><b>Rua</b></p><p><?php echo $dado1["logradouro"]?></p>
+                                <p><b>Complemento</b></p><p><?php echo $dado1["complemento"]?></p>
+                                <p><b>Número</b></p><p><?php echo $dado1["numero"]?></p>
+                                    
                                     </div>
-                                </div>
-                                 <p>Número do dente</p><input name="num_dente" value="<?php echo $dado["num_dente"]?>">
-                                 <p>Cor do dente</p><input name="cor_dente" value="<?php echo $dado["cor_dente"]?>">
+                              
+                                <p><b>Bairro</b></p><p><?php echo $dado1["bairro"]?></p>
+                                <p><b>Telefone</b></p><p><?php echo $dado1["telefone"]?></p>
+                             </div>
+                             <p><b>Email</b></p><p><?php echo $dado1["email"]?></p>
+
                                <div class="modal-footer">
-                                <button type="submit" class="btn btn-success" onclick="alterado_Sucesso()">Salvar Alterações</button>
+                                <button hidden="" <?php if ($dado["disponibilidade"] != "Pronto") echo "type='submit' class='btn btn-success' onclick='alterado_Sucesso()'"?>>Enviar </button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                                 </form>
                                </div>
@@ -265,22 +239,21 @@ $con = $conexao ->query($consulta) or die ($con->error);
                            </div>
                          </div>
 
-                	</tr>
-                	<?php } ?>
+
+                    </tr>
+
+                    <?php } ?>
+             
                 </table>
 
                 <div class="line"></div>
 
-               <p>
-                P.S: Só é possível alterar o pedido no qual o status encontra-se em ABERTO.
-                <br>
-                Caso queira alterar um pedido que esteja em andamento,entre em contato com o protético responsável.
-                </p>
+              
 
 
             </div>
         </div>
-
+</div>
 
 
 
@@ -301,7 +274,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
          <script type="text/javascript">
              function alterado_Sucesso(){
                 
-               alert("Pedido Alterado com Sucesso!");
+               alert("Trabalho Concluido!");
 
              }
          </script>

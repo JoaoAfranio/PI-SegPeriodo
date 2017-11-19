@@ -17,7 +17,7 @@ $pesquisaEstado = $_GET['estado'];
 
 
 $consulta = "SELECT id, trabalho, obs, sexo,idade_paciente, data_entrega, valor_medio, estado, dentista, num_dente,
-cor_dente FROM pedidos WHERE estado = '$pesquisaEstado'";
+cor_dente FROM pedidos WHERE estado = '$pesquisaEstado' AND disponibilidade2 != 'Aceito'";
 $con = $conexao ->query($consulta) or die ($con->error);
 
 
@@ -79,9 +79,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                             Home
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="mainProtetico.php">Home 1</a></li>
-                            <li><a href="#">Home 2</a></li>
-                            <li><a href="#">Home 3</a></li>
+                            <li><a href="mainProtetico.php">Página Inicial</a></li>
                         </ul>
                     </li>
                     <li>
@@ -92,15 +90,15 @@ $con = $conexao ->query($consulta) or die ($con->error);
                     </li>
                     
                     <li>
-                        <a href="/PI-SegPeriodo/trabalhosProtetico.php?estado=">
+                        <a href="trabalhosProtetico.php?estado=">
                             <i class="glyphicon glyphicon-list"></i>
                             Procurar Trabalhos
                         </a>
                     </li>
                     
                     <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-list"></i>
+                        <a href="visualizarTrabalho.php">
+                            <i class="glyphicon glyphicon-briefcase"></i>
                             Meus Trabalhos
                         </a>
                     </li>
@@ -109,10 +107,10 @@ $con = $conexao ->query($consulta) or die ($con->error);
             </nav>
 
             <!-- Page Content Holder -->
-            <div id="content">
+            <div id="content" style="width: 100%;">
 
                 <nav class="navbar navbar-default">
-                    <div class="container-fluid">
+                    <div class="container-fluid" >
 
                         <div class="navbar-header">
                             <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
@@ -244,8 +242,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
 
                <p>
 
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                proident, sunt in culpa qui officia deserunt moll
+              
                 </p>
 
             </div>

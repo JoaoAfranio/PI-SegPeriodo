@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Nov-2017 às 17:26
+-- Generation Time: 20-Nov-2017 às 00:01
 -- Versão do servidor: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -52,7 +52,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `login`, `email`, `senha`, `trabalho`, `nome`, `aniversario`, `sexo`, `telefone`, `CEP`, `logradouro`, `numero`, `complemento`, `bairro`, `estado`, `cidade`) VALUES
-(1, 'joao', 'joaoafraniorosa@hotmail.com', 123456, 'protetico', 'Joao Afranio Silva Rosa', '1999-05-20', 'masculino', 99999, 38780, 'Avenida Paracatu', 386, '', 'Centro', 'MG', 'Vazante'),
+(1, 'joao', 'joaoafraniorosa@hotmail.com', 123456, 'protetico', 'Joao Afranio Silva Rosa', '1999-05-20', 'masculino', 99999, 38780, 'Avenida Paracatu', 386, 'fonfon', 'Centro', 'MG', 'Vazante'),
 (2, 'joaoantonio', 'Joaoantonio@hotmail.com', 123456, 'protetico', 'Joao Antonio Fulano', '1950-02-16', 'masculino', 99999999, 387801120, 'Seila Mano', 40, 'Tambem Nao Sei', 'Centro', 'MG', 'Patos de Minas'),
 (3, 'ruan', 'ruan@hotmail.com', 123456, 'dentista', 'Ruan Lala Tete', '2017-10-11', 'masculino', 2147483647, 3878778, 'Avenida X', 586, 'Apt 305', 'Centro', 'MG', 'Patos de Minas');
 
@@ -75,16 +75,19 @@ CREATE TABLE `pedidos` (
   `protetico_resp` varchar(500) NOT NULL,
   `valor_medio` int(10) NOT NULL,
   `estado` varchar(500) NOT NULL,
-  `data_entrega` date NOT NULL
+  `data_entrega` date NOT NULL,
+  `disponibilidade2` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`, `dentista`, `disponibilidade`, `protetico_resp`, `valor_medio`, `estado`, `data_entrega`) VALUES
-(11, 'r.m', 'feminino', '28', '18', '32', '', 'joao', '', '', 0, 'MG', '0000-00-00'),
-(13, 'nucleo.i', 'feminino', '25', '16', '2b', '', 'ruan', '', '', 0, '', '0000-00-00');
+INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`, `dentista`, `disponibilidade`, `protetico_resp`, `valor_medio`, `estado`, `data_entrega`, `disponibilidade2`) VALUES
+(19, 'Montagem no Articulador', 'Masculino', '21', '11', 'amarelo12', '', 'Ruan Lala Tete', 'Pronto', 'Joao Afranio Silva Rosa', 0, 'MG', '2017-12-19', 'Aceito'),
+(20, 'Elemento Ponte Fixa', 'Masculino', '41', '17', 'amarelo 25', 'alo molieres', 'Ruan Lala Tete', 'Pronto', 'Joao Afranio Silva Rosa', 600, 'MG', '2017-12-20', 'Aceito'),
+(23, 'Elemento Ponte Fixa', 'Masculino', '35', '18', 'branco 7', '', 'Ruan Lala Tete', 'Pronto', 'Joao Afranio Silva Rosa', 100, 'MG', '2017-12-20', 'Aceito'),
+(24, 'Elemento Ponte Fixa', 'Masculino', '96', '45', 'branco99', 'frehtjh', 'Ruan Lala Tete', 'Em Andamento', 'Joao Afranio Silva Rosa', 877, 'MG', '2017-12-20', 'Aceito');
 
 --
 -- Indexes for dumped tables
@@ -110,13 +113,13 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
+<?php  
+        include("conecta.php");
         
-        <?php  
         session_start();
         if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
         {
@@ -11,8 +9,11 @@
             header('location:index.html');
             }
 
-        $logado = $_SESSION['login'];
         ?>
+
+<!DOCTYPE html>
+<html>
+    <head>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,9 +47,7 @@
                             Home
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="mainDentista.php">Home 1</a></li>
-                            <li><a href="#">Home 2</a></li>
-                            <li><a href="#">Home 3</a></li>
+                            <li><a href="mainDentista.php">Página Inicial</a></li>
                         </ul>
                     </li>
                     <li>
@@ -207,6 +206,16 @@
                             
                             <label class="labelcad">Cor do dente</label>
                             <input required type="text" name="cor_dente">
+                         
+                         </div>
+
+                          <div class="">
+                           
+                            <label class="labelcad">Data de Entrega</label><br>
+                            <input required type="date" name="data_entrega">
+                            
+                            <label class="labelcad">Valor do Tabalho</label>
+                            <input required type="text" name="valor">
                          
                          </div>
                  
