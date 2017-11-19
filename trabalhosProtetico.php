@@ -102,6 +102,12 @@ $con = $conexao ->query($consulta) or die ($con->error);
                             Meus Trabalhos
                         </a>
                     </li>
+                    <li>
+                        <a href="logout.php">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                            logout
+                        </a>
+                    </li>
 
                 </ul>
             </nav>
