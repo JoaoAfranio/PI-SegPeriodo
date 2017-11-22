@@ -18,7 +18,7 @@ $con1 = $conexao ->query($consulta1) or die ($con1->error);
 $dado1 = $con1->fetch_array();
 $nome = $dado1["nome"];
 
-$consulta = "SELECT * FROM pedidos WHERE dentista = '$nome'";
+$consulta = "SELECT * FROM pedidos WHERE dentista = '$logado'";
 $con = $conexao ->query($consulta) or die ($con->error);
 
 
@@ -85,7 +85,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="perfilDentista.php">
                             <i class="glyphicon glyphicon-user"></i>
                             Perfil
                         </a>
@@ -111,7 +111,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                     <li>
                         <a href="logout.php">
                             <i class="glyphicon glyphicon-log-out"></i>
-                            logout
+                            Logout
                         </a>
                     </li>
                 </ul>
@@ -143,7 +143,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         <th>Sexo do paciente</th>
                         <th>Idade do paciente</th>
                         <th>Número do dente</th>
-                        <th>Cor do Dente</th>
+                        <th>Seleção de cor</th>
                         <th>Protético Responsável</th>
                         <th>Status do Pedido</th>
                 	</tr>
@@ -193,8 +193,6 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                     <div class="col-md-4">
                                     <p><b>Data de Entrega</b></p>
                                     <p><?php echo $dado["data_entrega"]?></p>
-                                    <p><b>Preço</b></p>
-                                    <p><?php echo $dado["valor_medio"]?></p>
                                     </div>
                               
                                  <p><b>Número do dente</b></p><p><?php echo $dado["num_dente"]?></p>
@@ -256,7 +254,6 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                     </div>
                                     <div class="col-md-4">
                                     <p>Data de Entrega</p><input type="date" name="data_entrega" value="<?php echo $dado["data_entrega"]?>">
-                                    <p>Preço</p><input checked="R$" name="valor_medio" value="<?php echo $dado["valor_medio"]?>">
                                     </div>
                                 </div>
                                  <p>Número do dente</p><input name="num_dente" value="<?php echo $dado["num_dente"]?>">

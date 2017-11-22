@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 20-Nov-2017 às 00:48
--- Versão do servidor: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: 22-Nov-2017 às 02:30
+-- Versão do servidor: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `sitepi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `dentista` varchar(500) NOT NULL,
+  `protetico` varchar(500) NOT NULL,
+  `comentario` varchar(500) NOT NULL,
+  `nomeDentista` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `comentario`
+--
+
+INSERT INTO `comentario` (`dentista`, `protetico`, `comentario`, `nomeDentista`) VALUES
+('ruan', 'Joao Antonio Fulano', 'dasdsa', ''),
+('ruan', 'joaoantonio', 'dasdsa', ''),
+('ruan', 'joaoantonio', 'Testando mais uma vez', ''),
+('ruan', 'joao', 'dsadsada', ''),
+('ruan', 'joao', 'tatata', ''),
+('ruan', 'joao', 'dsadsadsa', ''),
+('ruan', 'joao', 'dasdsa', ''),
+('ruan', 'joao', 'Muito Bom!!!', '');
 
 -- --------------------------------------------------------
 
@@ -52,9 +79,9 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `login`, `email`, `senha`, `trabalho`, `nome`, `aniversario`, `sexo`, `telefone`, `CEP`, `logradouro`, `numero`, `complemento`, `bairro`, `estado`, `cidade`) VALUES
-(1, 'joao', 'joaoafraniorosa@hotmail.com', 123456, 'protetico', 'Joao Afranio Silva Rosa', '1999-05-20', 'masculino', 99999, 38780, 'Avenida Paracatu', 386, 'fonfon', 'Centro', 'MG', 'Vazante'),
+(1, 'joao', 'joaoafraniorosa1@hotmail.com', 123, 'protetico', 'Joao Afranio Silva Rosa', '1999-05-20', 'masculino', 999995555, 38780, 'Avenida Paracatu', 386, 'Centro', 'Centro', 'MG', 'Vazante'),
 (2, 'joaoantonio', 'Joaoantonio@hotmail.com', 123456, 'protetico', 'Joao Antonio Fulano', '1950-02-16', 'masculino', 99999999, 387801120, 'Seila Mano', 40, 'Tambem Nao Sei', 'Centro', 'MG', 'Patos de Minas'),
-(3, 'ruan', 'ruan@hotmail.com', 123456, 'dentista', 'Ruan Lala Tete', '2017-10-11', 'masculino', 2147483647, 3878778, 'Avenida X', 586, 'Apt 305', 'Centro', 'MG', 'Patos de Minas');
+(3, 'ruan', 'ruan1@hotmail.com', 123456, 'dentista', 'Ruan Fulano Teste', '2017-10-11', 'masculino', 2147483647, 3878778, 'Avenida X', 586, 'Centro', 'Centro', 'MG', 'Patos de Minas');
 
 -- --------------------------------------------------------
 
@@ -73,7 +100,6 @@ CREATE TABLE `pedidos` (
   `dentista` varchar(500) NOT NULL,
   `disponibilidade` varchar(400) NOT NULL,
   `protetico_resp` varchar(500) NOT NULL,
-  `valor_medio` int(10) NOT NULL,
   `estado` varchar(500) NOT NULL,
   `data_entrega` date NOT NULL,
   `disponibilidade2` varchar(500) NOT NULL
@@ -83,11 +109,32 @@ CREATE TABLE `pedidos` (
 -- Extraindo dados da tabela `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`, `dentista`, `disponibilidade`, `protetico_resp`, `valor_medio`, `estado`, `data_entrega`, `disponibilidade2`) VALUES
-(19, 'Montagem no Articulador', 'Masculino', '21', '11', 'amarelo12', '', 'Ruan Lala Tete', 'Pronto', 'Joao Afranio Silva Rosa', 0, 'MG', '2017-12-19', 'Aceito'),
-(20, 'Elemento Ponte Fixa', 'Masculino', '41', '17', 'amarelo 25', 'alo molieres', 'Ruan Lala Tete', 'Pronto', 'Joao Afranio Silva Rosa', 600, 'MG', '2017-12-20', 'Aceito'),
-(23, 'Elemento Ponte Fixa', 'Masculino', '35', '18', 'branco 7', '', 'Ruan Lala Tete', 'Pronto', 'Joao Afranio Silva Rosa', 100, 'MG', '2017-12-20', 'Aceito'),
-(24, 'Elemento Ponte Fixa', 'Masculino', '96', '45', 'branco99', 'frehtjh', 'Ruan Lala Tete', 'Em Andamento', 'Joao Afranio Silva Rosa', 877, 'MG', '2017-12-20', 'Aceito');
+INSERT INTO `pedidos` (`id`, `trabalho`, `sexo`, `idade_paciente`, `num_dente`, `cor_dente`, `obs`, `dentista`, `disponibilidade`, `protetico_resp`, `estado`, `data_entrega`, `disponibilidade2`) VALUES
+(19, 'Montagem no Articulador', 'Masculino', '21', '11', 'amarelo12', '', 'Ruan Lala Tete', 'Pronto', 'Joao Afranio Silva Rosa', 'MG', '2017-12-19', 'Aceito'),
+(20, 'Elemento Ponte Fixa', 'Masculino', '41', '17', 'amarelo 25', 'alo molieres', 'Ruan Lala Tete', 'Pronto', 'Joao Afranio Silva Rosa', 'MG', '2017-12-20', 'Aceito'),
+(23, 'Elemento Ponte Fixa', 'Masculino', '35', '18', 'branco 7', '', 'Ruan Lala Tete', 'Pronto', 'Joao Afranio Silva Rosa', 'MG', '2017-12-20', 'Aceito'),
+(24, 'Elemento Ponte Fixa', 'Masculino', '96', '45', 'branco99', 'frehtjh', 'Ruan Lala Tete', 'Em Andamento', 'Joao Afranio Silva Rosa', 'MG', '2017-12-20', 'Aceito'),
+(25, 'Coroa Jaqueta Pura', 'Masculino', '18', '16', 'B2', '', 'Ruan Lala Tete', 'Aberto', '', 'MG', '2017-11-22', ''),
+(28, 'Onlay', 'Masculino', '18', '18', 'B4', '', 'ruan', 'Aberto', '', 'MG', '2017-11-29', ''),
+(29, 'Coroa Jaqueta Pura', 'Feminino', '32', '17', '3B', '', 'ruan', 'Aberto', '', 'MG', '2017-11-08', ''),
+(30, 'Inlay', 'Feminino', '32', '18', 'b5', '', 'ruan', 'Aberto', '', 'MG', '2017-11-30', ''),
+(31, 'TESTANDO', 'Feminino', '32', '14', 'A1', '', 'ruan', 'Aberto', '', 'MG', '2017-11-22', ''),
+(32, 'Ponto de Solda', 'Feminino', '321', '17', 'c4', '', 'ruan', 'Aberto', '', 'MG', '2017-11-30', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `protetico_especialidades`
+--
+
+CREATE TABLE `protetico_especialidades` (
+  `protetico` varchar(500) NOT NULL,
+  `especialidade_1` varchar(500) NOT NULL,
+  `especialidade_2` varchar(500) NOT NULL,
+  `especialidade_3` varchar(500) NOT NULL,
+  `especialidade_4` varchar(500) NOT NULL,
+  `especialidade_5` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -119,7 +166,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

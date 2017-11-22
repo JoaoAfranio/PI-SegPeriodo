@@ -13,7 +13,7 @@ session_start();
         
 $filtroESTADO = $_GET["estado"];
 
-$consulta = "SELECT nome, email, cidade FROM login WHERE estado = '$filtroESTADO'";
+$consulta = "SELECT nome, email, cidade, login FROM login WHERE estado = '$filtroESTADO'";
 $con = $conexao ->query($consulta) or die ($con->error);
 
 
@@ -82,7 +82,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="perfilDentista.php">
                             <i class="glyphicon glyphicon-user"></i>
                             Perfil
                         </a>
@@ -99,7 +99,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                             Listar Pedidos
                         </a>
                     </li>
-                    <li class="active">
+                    <li  class="active">
                         <a href="listaProtetico.php?estado=">
                             <i class="glyphicon glyphicon-send"></i>
                             Listar Protéticos
@@ -108,7 +108,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                     <li>
                         <a href="logout.php">
                             <i class="glyphicon glyphicon-log-out"></i>
-                            logout
+                            Logout
                         </a>
                     </li>
                 </ul>
@@ -169,16 +169,20 @@ $con = $conexao ->query($consulta) or die ($con->error);
                 
                 <table id="tabelaCustom">
                 	<tr>
-                		<th>Nome</th>
+                        <th></th>
+                		<th style="padding-left: 20px;">Nome</th>
                 		<th style="padding-left: 20px;">E-mail</th>
                 		<th style="padding-left: 20px;">Cidade</th>
                 	</tr>
                 	<?php while($dado = $con->fetch_array()){?>
+                    <form action="perfProteticoVISUALIZAR.php" action="get"></form>
                 	<tr>
-                		<td><?php echo $dado["nome"];?></td>
+                		<td style="width: 40px;"><input name="nome" value="<?php echo $dado["login"]?>" type="hidden"><a class="btn btn-info" href="perfProteticoVISUALIZAR.php?login=<?php echo $dado["login"]?>" role="button"><span class="glyphicon glyphicon-user"></span></a></td>
+                        <td style="padding-left: 20px;"><?php echo $dado["nome"];?></td>
                 		<td style="padding-left: 20px;"><?php echo $dado["email"];?></td>
                 		<td style="padding-left: 20px;"><?php echo $dado["cidade"];?></td>
                 	</tr>
+                    </form>
                 	<?php } ?>
                 </table>
 

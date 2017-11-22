@@ -89,7 +89,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="perfilProtetico.php">
                             <i class="glyphicon glyphicon-user"></i>
                             Perfil
                         </a>
@@ -109,9 +109,15 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         </a>
                     </li>
                     <li>
+                        <a href="">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            Requisições de trabalho
+                        </a>
+                    </li>
+                    <li>
                         <a href="logout.php">
                             <i class="glyphicon glyphicon-log-out"></i>
-                            logout
+                            Logout
                         </a>
                     </li>
 
@@ -152,7 +158,6 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         <th>Número do dente</th>
                         <th>Cor do Dente</th>
                         <th>Dentista</th>
-                        <th>Valor</th>
                     </tr>
 
                     <?php while($dado = $con->fetch_array()){?>
@@ -166,12 +171,11 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         <td style="padding-bottom: 10px;"><?php echo $dado["num_dente"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["cor_dente"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["dentista"];?></td>
-                        <td style="padding-bottom: 10px;">R$<?php echo $dado["valor_medio"];?></td>
                         <td><button  type="button" class="btn btn-info" data-toggle="modal" data-target="#alterarMODAL<?php echo $dado["id"]?>">Vizualizar</button></td>
                       
                        <form action="deletarPedido2.php" method="get">
                         <input type="hidden" name="id" value="<?php echo $dado['id'] ?>">
-                        <td><button hidden=""<?php if ($dado["disponibilidade"] != "Pronto") echo "type='submit' onclick='deletado_Sucesso()' class='btn btn-danger'"?> >Apagar</button></td>
+                        <td><button hidden=""<?php if ($dado["disponibilidade"] != "Pronto") echo "type='submit' onclick='deletado_Sucesso()' class='btn btn-danger'"?> >Recusar Pedido</button></td>
                         </form>
                          <!-- Modal -->
                         <div class="modal fade" id="alterarMODAL<?php echo $dado["id"]?>" role="dialog">
@@ -188,27 +192,25 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                     <div class="row">
                                         <div class="col-md-4">
                                             <p><b>Nº do pedido</b></p><p><input name="id" value="<?php echo $dado["id"]?>" type="hidden"><?php echo $dado["id"]?></p>
-                                            <p><b>Trabalho</p></b><p><?php echo $dado["trabalho"]?></p>
+                                            <p><b>Trabalho</p></b>
+                                                <p><?php echo $dado["trabalho"]?></p>
+                                            <p><b>Sexo<b></p>
+                                               <p><?php echo $dado["sexo"]?><p>   
+                                            <p><b>Idade</b></p>
+                                                <p><?php echo $dado["idade_paciente"]?></p>
                                         </div>
                                         <div class="col-md-4">
-                                            <p><b>Observação</b></p><p><?php echo $dado["obs"]?></p>
+                                                <p><b>Data de Entrega</b></p>
+                                                <p><?php echo $dado["data_entrega"]?></p>
+                                                <p><b>Número do dente</b></p><p><?php echo $dado["num_dente"]?></p>
+                                                <p><b>Cor do dente</b></p><p><?php echo $dado["cor_dente"]?></p>
+                                                <p><b>Dentista</b></p><p><?php echo $dado["dentista"]?></p>
                                         </div>
-                                    </div>
-                                <div class="row">
+                                        
                                     <div class="col-md-4">
-                                 <p><b>Sexo<b></p>
-                                    <p><?php echo $dado["sexo"]?><p>   
-                                 <p><b>Idade</b></p><p><?php echo $dado["idade_paciente"]?></p>
-                                    </div>
-                                    <div class="col-md-4">
-                                    <p><b>Data de Entrega</b></p>
-                                    <p><?php echo $dado["data_entrega"]?></p>
-                                    <p><b>Preço</b></p>
-                                    <p><?php echo $dado["valor_medio"]?></p>
+                                            <p><b>Observação</b></p><p><?php echo $dado["obs"]?></p>
                                     </div>
                               
-                                 <p><b>Número do dente</b></p><p><?php echo $dado["num_dente"]?></p>
-                                 <p><b>Cor do dente</b></p><p><?php echo $dado["cor_dente"]?></p>
                              </div>
 
                             <div class="line"></div>

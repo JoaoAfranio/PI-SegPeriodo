@@ -15,10 +15,19 @@ session_start();
 
 $pesquisaEstado = $_GET['estado'];
 
+if($pesquisaEstado == ""){
 
-$consulta = "SELECT id, trabalho, obs, sexo,idade_paciente, data_entrega, valor_medio, estado, dentista, num_dente,
+$consulta = "SELECT id, trabalho, obs, sexo,idade_paciente, data_entrega, estado, dentista, num_dente,
+cor_dente FROM pedidos WHERE disponibilidade2 != 'Aceito'";
+$con = $conexao ->query($consulta) or die ($con->error);
+
+}else{
+    
+$consulta = "SELECT id, trabalho, obs, sexo,idade_paciente, data_entrega,  estado, dentista, num_dente,
 cor_dente FROM pedidos WHERE estado = '$pesquisaEstado' AND disponibilidade2 != 'Aceito'";
 $con = $conexao ->query($consulta) or die ($con->error);
+}
+
 
 
 ?>
@@ -83,7 +92,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="perfilProtetico.php">
                             <i class="glyphicon glyphicon-user"></i>
                             Perfil
                         </a>
@@ -103,9 +112,15 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         </a>
                     </li>
                     <li>
+                        <a href="">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            Requisições de trabalho
+                        </a>
+                    </li>
+                    <li>
                         <a href="logout.php">
                             <i class="glyphicon glyphicon-log-out"></i>
-                            logout
+                            Logout
                         </a>
                     </li>
 
@@ -177,7 +192,6 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         <th>Nº Pedido</th>
                         <th>Trabalho</th>
                         <th>Data de entrega</th>
-                        <th>Preço</th>
                         <th>Estado</th>
                         <th>Dentista Responsável</th>
 
@@ -185,12 +199,20 @@ $con = $conexao ->query($consulta) or die ($con->error);
 
                     <?php while($dado = $con->fetch_array()){?>
                     <tr>
+                        <?php 
+                        $dentista = $dado["dentista"];
+                        
+
+                        $consulta3 = "SELECT nome FROM login WHERE login = '$dentista'";
+                        $con3 = $conexao ->query($consulta3) or die ($con3->error);
+                        $dado3 = $con3->fetch_array();
+
+                        ?>
                         <td style="padding-bottom: 10px;"><?php echo $dado["id"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["trabalho"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["data_entrega"];?></td>
-                        <td style="padding-bottom: 10px;"><?php echo $dado["valor_medio"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["estado"];?></td>
-                        <td style="padding-bottom: 10px;"><?php echo $dado["dentista"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $dado3["nome"];?></td>
 
                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#alterarMODAL<?php echo $dado["id"]?>">Visualizar Pedido</button></td>
                         <!-- Modal -->
@@ -223,8 +245,6 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                     <div class="col-md-4">
                                     <p><b>Data de Entrega</b></p>
                                     <p><?php echo $dado["data_entrega"]?></p>
-                                    <p><b>Preço</b></p>
-                                    <p><?php echo $dado["valor_medio"]?></p>
                                     </div>
                                 </div>
                                  <p><b>Número do dente</b></p><p><?php echo $dado["num_dente"]?></p>

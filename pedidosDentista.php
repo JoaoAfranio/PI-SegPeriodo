@@ -51,12 +51,12 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="perfilDentista.php">
                             <i class="glyphicon glyphicon-user"></i>
                             Perfil
                         </a>
                     </li>
-                    <li class="active">
+                    <li  class="active"> 
                         <a href="pedidosDentista.php">
                             <i class="glyphicon glyphicon-briefcase"></i>
                             Fazer Pedidos
@@ -77,7 +77,7 @@
                     <li>
                         <a href="logout.php">
                             <i class="glyphicon glyphicon-log-out"></i>
-                            logout
+                            Logout
                         </a>
                     </li>
                 </ul>
@@ -114,33 +114,37 @@
                 <div class="row cadastroback">
              <div class="col-md-4">
                 <form  style="margin-left: 20px;" action="fazerPedido.php"  method="get" name="Pedidos" id="login">
-                    <input type="radio" required name="trabalho" value="Elemento Ponte Fixa"> <span class="labelcad">Elemento Ponte Fixa</span><br>
+                    <input type="radio" name="trabalho" value="Elemento Ponte Fixa"> <span class="labelcad">Elemento Ponte Fixa</span><br>
                     <input type="radio" name="trabalho" value="Coroa Vaneer"> <span class="labelcad">Coroa Vaneer</span><br>
                     <input type="radio" name="trabalho" value="Coroa Total"> <span class="labelcad">Coroa Total</span><br>
                     <input type="radio" name="trabalho" value="Coroa Jaqueta Pura"> <span class="labelcad">Coroa Jaqueta Pura</span><br>
                     <input type="radio" name="trabalho" value="R.M Fundida"> <span class="labelcad">R.M Fundida</span><br>
                     <input type="radio" name="trabalho" value="Núcleo Direto"> <span class="labelcad">Núcleo Direto</span><br>
                     <input type="radio" name="trabalho" value="Núcleo Indireto"> <span class="labelcad">Núcleo Indireto</span><br>
-                    <input type="radio" name="trabalho" value="Copiny para Resina"> <span class="labelcad">Copiny para Resina</span><br>
+                    <input type="radio" name="trabalho" value="Coping para Resina"> <span class="labelcad">Coping para Resina</span><br><br>
+                    <input type="radio" name="trabalho"><span class="labelcad">Prótese não listada</span>
+                    <input type="text" name="trabalho_naoListado">
             </div>        
             <div class="col-md-4">           
-                    <input type="radio" name="trabalho" value="Copiny Cerâmico"> <span class="labelcad">Copiny Cerâmico</span><br>
-                    <input type="radio" name="trabalho" value="Inlay Onlay"> <span class="labelcad">Inlay Onlay</span><br>
+                    <input type="radio" name="trabalho" value="Coping Cerâmico"> <span class="labelcad">Coping Cerâmico</span><br>
+                    <input type="radio" name="trabalho" value="Inlay"> <span class="labelcad">Inlay</span><br>
+                    <input type="radio" name="trabalho" value="Onlay"> <span class="labelcad">Onlay</span><br>
                     <input type="radio" name="trabalho" value="Elemento Provisório Acrílico"> <span class="labelcad">Elemento Provisório Acrílico</span><br>
                     <input type="radio" name="trabalho" value="Ponto de Solda"> <span class="labelcad">Ponto de Solda</span><br>
-                    <input type="radio" name="trabalho" value="Prótese Total (Detadura)"> <span class="labelcad">Prótese Total (Detadura)</span><br>          
+                    <input type="radio" name="trabalho" value="Prótese Total"> <span class="labelcad">Prótese Total</span><br>          
                     <input type="radio" name="trabalho" value="Ponte Móvel (Roach Metal)"> <span class="labelcad">Ponte Móvel (Roach Metal)</span><br>
                     <input type="radio" name="trabalho" value="Ponte Móvel (R. parte Acrílica)"> <span class="labelcad">Ponte Móvel (R. parte Acrílica)</span><br>
-                    <input type="radio" name="trabalho" value="Provisória (Perereca)"> <span class="labelcad">Provisória (Perereca)</span><br>
             </div>        
             <div class="col-md-4">          
+                    <input type="radio" name="trabalho" value="Prótese Provisória"> <span class="labelcad">Prótese Provisória </span><br>
                     <input type="radio" name="trabalho" value="Placa Clareamento"> <span class="labelcad">Placa Clareamento</span><br>
                     <input type="radio" name="trabalho" value="Placa Bruxismo Acrílica"> <span class="labelcad">Placa Bruxismo Acrílica</span><br>
                     <input type="radio" name="trabalho" value="Placa Bruxismo Plastivac"> <span class="labelcad">Placa Bruxismo Plastivac</span><br>
-                    <input type="radio" name="trabalho" value="Vaz-Gesso"> <span class="labelcad">Vaz-Gesso</span><br>
+                    <input type="radio" name="trabalho" value="Vaz-Gesso"> <span class="labelcad">Vazar Gesso</span><br>
                     <input type="radio" name="trabalho" value="Consertos"> <span class="labelcad">Consertos</span><br>
                     <input type="radio" name="trabalho" value="Moldeira Individual de Acrílico"> <span class="labelcad">Moldeira Individual de acrilico</span><br>
-                    <input type="radio" name="trabalho" value="Montagem no Articulador"> <span class="labelcad">Montagem no Articulador</span>
+                    <input type="radio" name="trabalho" value="Montagem no Articulador"> <span class="labelcad">Montagem no Articulador</span><br>
+                    <input type="radio" name="trabalho" value="Prótese Parcial Provisória"> <span class="labelcad">Prótese Provisória </span><br>
                  </div>
                  </div>
                  
@@ -210,7 +214,7 @@
                             <label class="labelcad">Numeração do Dente</label>
                             <input required type="text" name="num_dente" id="numeracao">
                             
-                            <label class="labelcad">Cor do dente</label>
+                            <label class="labelcad">Seleção de cor</label>
                             <input required type="text" name="cor_dente">
                          
                          </div>
@@ -220,8 +224,6 @@
                             <label class="labelcad">Data de Entrega</label><br>
                             <input required type="date" name="data_entrega">
                             
-                            <label class="labelcad">Valor do Tabalho</label>
-                            <input required type="text" name="valor">
                          
                          </div>
                  
