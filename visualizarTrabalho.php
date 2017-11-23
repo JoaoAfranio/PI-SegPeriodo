@@ -19,8 +19,8 @@ $con1 = $conexao ->query($consulta1) or die ($con1->error);
 $dado1 = $con1->fetch_array();
 $nome = $dado1["nome"];
 
-
-$consulta = "SELECT * FROM pedidos WHERE protetico_resp = '$nome' AND disponibilidade2 = 'Aceito'";
+//SELECT * FROM pedidos WHERE dentista = '$logado' UNION SELECT * FROM requisicaopedidos WHERE dentista = '$logado'
+$consulta = "SELECT * FROM pedidos WHERE protetico_resp = '$logado' AND disponibilidade2 = 'Aceito' UNION SELECT * FROM requisicaopedidos WHERE protetico_resp = '$logado' AND disponibilidade2 = 'Aceito'";
 $con = $conexao ->query($consulta) or die ($con->error);
 
 
@@ -79,7 +79,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                 </div>
 
                 <ul class="list-unstyled components">
-                    <li class="active">
+                    <li>
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
                             <i class="glyphicon glyphicon-home"></i>
                             Home
@@ -102,14 +102,14 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         </a>
                     </li>
                     
-                    <li>
+                    <li class="active">
                         <a href="visualizarTrabalho.php">
                             <i class="glyphicon glyphicon-briefcase"></i>
                             Meus Trabalhos
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="requisicaoTrabalho.php">
                             <i class="glyphicon glyphicon-envelope"></i>
                             Requisições de trabalho
                         </a>
@@ -160,7 +160,20 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         <th>Dentista</th>
                     </tr>
 
-                    <?php while($dado = $con->fetch_array()){?>
+                    <?php while($dado = $con->fetch_array()){
+
+                      $dentista = $dado["dentista"];
+
+                      $consultaNome = "SELECT * FROM login WHERE login = '$dentista'";
+                      $conNome = $conexao ->query($consultaNome) or die ($conNome->error);
+                      $dados2 = $conNome->fetch_array();
+                      $nome = $dados2["nome"];
+
+
+
+                      ?>
+
+
                    
                     <tr>
                         
@@ -170,7 +183,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         <td style="padding-bottom: 10px;"><?php echo $dado["idade_paciente"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["num_dente"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["cor_dente"];?></td>
-                        <td style="padding-bottom: 10px;"><?php echo $dado["dentista"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $nome;?></td>
                         <td><button  type="button" class="btn btn-info" data-toggle="modal" data-target="#alterarMODAL<?php echo $dado["id"]?>">Vizualizar</button></td>
                       
                        <form action="deletarPedido2.php" method="get">
@@ -204,7 +217,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                                 <p><?php echo $dado["data_entrega"]?></p>
                                                 <p><b>Número do dente</b></p><p><?php echo $dado["num_dente"]?></p>
                                                 <p><b>Cor do dente</b></p><p><?php echo $dado["cor_dente"]?></p>
-                                                <p><b>Dentista</b></p><p><?php echo $dado["dentista"]?></p>
+                                                <p><b>Dentista</b></p><p><?php echo $nome?></p>
                                         </div>
                                         
                                     <div class="col-md-4">
@@ -220,22 +233,22 @@ $con = $conexao ->query($consulta) or die ($con->error);
                          <div class="row">
 
                                     <div class="col-md-4">
-                                <p><b>Estado</b></p><p><?php echo $dado1["estado"]?></p>
-                                <p><b>Cidade</b></p><p><?php echo $dado1["cidade"]?></p>
-                                <p><b>Cep</b></p><p><?php echo $dado1["CEP"]?></p>
+                                <p><b>Estado</b></p><p><?php echo $dados2["estado"]?></p>
+                                <p><b>Cidade</b></p><p><?php echo $dados2["cidade"]?></p>
+                                <p><b>Cep</b></p><p><?php echo $dados2["CEP"]?></p>
                                     </div>
 
                                     <div class="col-md-4">
-                                <p><b>Rua</b></p><p><?php echo $dado1["logradouro"]?></p>
-                                <p><b>Complemento</b></p><p><?php echo $dado1["complemento"]?></p>
-                                <p><b>Número</b></p><p><?php echo $dado1["numero"]?></p>
+                                <p><b>Rua</b></p><p><?php echo $dados2["logradouro"]?></p>
+                                <p><b>Complemento</b></p><p><?php echo $dados2["complemento"]?></p>
+                                <p><b>Número</b></p><p><?php echo $dados2["numero"]?></p>
                                     
                                     </div>
                               
-                                <p><b>Bairro</b></p><p><?php echo $dado1["bairro"]?></p>
-                                <p><b>Telefone</b></p><p><?php echo $dado1["telefone"]?></p>
+                                <p><b>Bairro</b></p><p><?php echo $dados2["bairro"]?></p>
+                                <p><b>Telefone</b></p><p><?php echo $dados2["telefone"]?></p>
                              </div>
-                             <p><b>Email</b></p><p><?php echo $dado1["email"]?></p>
+                             <p><b>Email</b></p><p><?php echo $dados2["email"]?></p>
 
                                <div class="modal-footer">
                                 <button hidden="" <?php if ($dado["disponibilidade"] != "Pronto") echo "type='submit' class='btn btn-success' onclick='alterado_Sucesso()'"?>>Enviar </button>

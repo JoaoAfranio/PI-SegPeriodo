@@ -3,6 +3,9 @@
 
 	$recebeID = $_GET["id"];
 
+
+	$recebeNOME = $_GET["nome_paciente"];
+
 	$recebeTRABALHO = $_GET["trabalho"];
 
 	$recebeSEXO = $_GET["sexo"];
@@ -15,7 +18,7 @@
 
 	$recebeData = $_GET["data_entrega"];
 
-	mysqli_query($conexao, "UPDATE pedidos SET sexo='$recebeSEXO',trabalho='$recebeTRABALHO',idade_paciente='$recebeIDADE',obs='$recebeOBS',num_dente='$recebeNUM_DENTE',
+	mysqli_query($conexao, "UPDATE pedidos SET sexo='$recebeSEXO',nome_paciente = '$recebeNOME',trabalho='$recebeTRABALHO',idade_paciente='$recebeIDADE',obs='$recebeOBS',num_dente='$recebeNUM_DENTE',
 					cor_dente='$recebeCOR_DENTE', data_entrega='$recebeData'  WHERE id='$recebeID' ") or die(mysqli_error($conexao));
 
 	

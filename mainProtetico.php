@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <?php  
+        include("conecta.php");
         session_start();
         if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
         {
@@ -12,6 +13,10 @@
             }
 
         $logado = $_SESSION['login'];
+
+        $consulta1 = "SELECT * FROM login WHERE login = '$logado'";
+        $con1 = $conexao ->query($consulta1) or die ($con1->error);
+        $dado1 = $con1->fetch_array();
         ?>
 
 
@@ -19,7 +24,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Collapsible sidebar using Bootstrap 3</title>
+        <title>PROT+</title>
 
          <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -68,7 +73,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="requisicaoTrabalho.php">
                             <i class="glyphicon glyphicon-envelope"></i>
                             Requisições de trabalho
                         </a>
@@ -103,13 +108,33 @@
                         </div>
                     </div>
                 </nav>
-
-                <h2>Pagina Principal</h2>
+                <h3>Seja bem-vindo</h3>
+                <h4>Você esta logado como <p style="display: inline;"><?php echo $dado1["nome"] ?></p></h4>
 
 
                 <div class="line"></div>
 
-                <h2>Lorem Ipsum Dolor</h2>
+                <h3>Por que utilizar PROT+?</h3>
+                <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                    <img src="imgs/cloud.png" class="img-responsive" style="margin-left: 80px;margin-top: 50px;width: 200px;height: auto;">
+                    <p style="text-align: center;margin-top: 10px;">Acessar seus pedidos em nuvem,desse modo você pode verificar novos trabalhos onde quiser.</p>
+                    </div>
+                    <div class="col-md-4">
+                    <img src="imgs/closed-lock.png" class="img-responsive" style="margin-left: 80px;margin-top: 50px;width: 200px;height: auto;">
+                    <p style="text-align: center;margin-top: 10px;">Oferecemos segurança de dados e Confiabilidade.</p>
+                    </div>
+                    <div class="col-md-4">
+                    <img src="imgs/stick-man.png" class="img-responsive" style="margin-left: 80px;margin-top: 50px;width: 200px;height: auto;">
+                    <p style="text-align: center;margin-top: 10px;">PROT+ te oferece trabalhos de todos estados do país.</p>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-md-12">
+                <p style="text-align: center;margin-top: 50px;"><button type="button" class="btn btn-info">Procurar Trabalhos</button></p>
+                </div>
+                </div>
             </div>
         </div>
 

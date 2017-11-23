@@ -119,7 +119,7 @@
                     <div class="container-fluid">
                         <div  class="row">
                                 <div class="col-md-3">
-                                    <img src="imgs/perfilDentista.jpg" style="padding-left: 20px;width: 300px;height: 300px;border-radius: 50%;">
+                                    <img src="imgs/dentistaPerfil.jpg" style="padding-left: 20px;width: 300px;height: 300px;border-radius: 50%;">
                                     <p style="text-align: center;padding-top: 10px;"><a style="color: #0067B8;" href="">Alterar Imagem</a></p>
                                 </div>
 
@@ -227,34 +227,30 @@
                                 <div class="col-md-5">
                                 <div style="background: #08a191;border-top-left-radius: 2em;border-top-right-radius: 2em;padding-bottom: 2px;padding-top: 1px;">
 
-                                <h3 style="margin-top: 10px;margin-left: 10px;">Comentários</h3>
+                                <h3 style="margin-top: 10px;margin-left: 10px;">Dicas</h3>
                                 </div>
 
                                 <div style="overflow: auto;width: 100%;height: 400px;">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.    
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    <div style="margin: 10px 0;" class="line"></div>
+                                    <div class="container-fluid">
+
+                                        Você pode fazer pedidos para um prótetico especificamente.Basta apenas acessar o perfil dele e clicar no botão fazer pedido.
+                                    </div>
+
+                                    <div style="margin: 10px 0;" class="line"></div>
+                                    <div class="container-fluid">
+                                    
+                                        No perfil do prótetico pode encontrar,informações como:quais são as especialidades do trabalho dele e comentários sobre o trabalho.
+                                    </div>
+                                    <div style="margin: 10px 0;" class="line"></div>
+
+                                    <div class="container-fluid">
+                                    
+                                        Você Sabia? <br>"As próteses dentárias foram durante muitos anos um serviço de qualquer pessoa que o dentista achasse confiança para que desempenhasse, sem qualquer tipo de qualificação"
+                                    </div>
+                                    <div style="margin: 10px 0;" class="line"></div>
+
+
                                 </div>
                                 <div style="background: #08a191;border-bottom-left-radius: 2em;border-bottom-right-radius: 2em;padding-bottom: 35px;padding-top: 1px;">
                                     

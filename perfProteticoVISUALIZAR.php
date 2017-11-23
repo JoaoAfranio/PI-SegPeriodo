@@ -29,6 +29,9 @@
         $con = $conexao ->query($consulta) or die ($con->error);
 
 
+        $consultaEspecialidades = "SELECT * FROM protetico_especialidades WHERE protetico = '$loginProtetico'";
+        $conEsp = $conexao ->query($consultaEspecialidades) or die ($conEsp->error);
+        $dadosEsp = $conEsp->fetch_array();
 
 
 
@@ -141,7 +144,7 @@
                                     <img src="imgs/perfilProtetico.jpg" style="padding-left: 20px;width: 300px;height: 300px;border-radius: 50%;">
                                     <br><br><br><br><br>
                                     <button class="btn btn-info">Foto de Trabalhos</button>
-                                    <button class="btn btn-info">Pedir prótese</button><br><br>
+                                    <a href="enviarPedidoProtetico.php?login=<?php echo $loginProtetico?>"><button class="btn btn-info">Pedir prótese</button></a><br><br>
                                 </div>
 
                                 <div class="col-md-4">
@@ -154,11 +157,9 @@
                                     <br>
                                     <h3>Especialidades:</h3>
                                     <ul style="padding-left: 20px;">
-                                    <li class="semBullet"><i class="glyphicon glyphicon-chevron-right"></i>Prótese Fixa</li>
-                                    <li class="semBullet"><i class="glyphicon glyphicon-chevron-right"></i>Prótese Total</li>
-                                    <li class="semBullet"><i class="glyphicon glyphicon-chevron-right"></i>Prótese Parcial Removível</li>
-                                    <li class="semBullet"><i class="glyphicon glyphicon-chevron-right"></i>Placa para Clareamento</li>
-                                    <li class="semBullet"><i class="glyphicon glyphicon-chevron-right"></i>Placa Miorrelaxante</li>
+                                    <?php while($dadoEsp = $conEsp->fetch_array()){?>
+                                    <li class="semBullet"><i class="glyphicon glyphicon-chevron-right"></i><?php echo $dadoEsp["especialidade"]?></li>
+                                    <?php } ?>
                                     </ul>
                                 </div>
 

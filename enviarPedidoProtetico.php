@@ -9,6 +9,12 @@
             header('location:index.html');
             }
 
+        $loginProtetico = $_GET["login"];
+
+        $consulta = "SELECT * FROM login WHERE login = '$loginProtetico'";
+        $con = $conexao ->query($consulta) or die ($con->error);
+        $dado = $con->fetch_array();
+
         ?>
 
 <!DOCTYPE html>
@@ -84,7 +90,7 @@
             </nav>
 
             <!-- Page Content Holder -->
-            <div id="content" style="width: 100%;">
+            <div id="content">
 
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
@@ -102,7 +108,8 @@
                     </div>
                 </nav>
 
-                <h2>Pedidos</h2>
+                <h2>Fazer pedido</h2>
+                <h4 style="display: inline;">Enviar Pedido para: <p style="display: inline;"><?php echo $dado["nome"] ?></p></h4>
                 
 
 
@@ -113,14 +120,14 @@
                 
                 <div class="row cadastroback">
              <div class="col-md-4">
-                <form  style="margin-left: 20px;" action="fazerPedido.php"  method="get" name="Pedidos" id="login">
+                <form  style="margin-left: 20px;" action="PedidoParaProtetico.php"  method="get" name="Pedidos" id="login">
                     <input type="radio" name="trabalho" value="Elemento Ponte Fixa"> <span class="labelcad">Elemento Ponte Fixa</span><br>
                     <input type="radio" name="trabalho" value="Coroa Vaneer"> <span class="labelcad">Coroa Vaneer</span><br>
                     <input type="radio" name="trabalho" value="Coroa Total"> <span class="labelcad">Coroa Total</span><br>
                     <input type="radio" name="trabalho" value="Coroa Jaqueta Pura"> <span class="labelcad">Coroa Jaqueta Pura</span><br>
                     <input type="radio" name="trabalho" value="R.M Fundida"> <span class="labelcad">R.M Fundida</span><br>
-                    <input type="radio" name="trabalho" value="Núcleo Direto"> <span class="labelcad">Núcleo Direto</span><br>
-                    <input type="radio" name="trabalho" value="Núcleo Indireto"> <span class="labelcad">Núcleo Indireto</span><br>
+                    <input type="radio" name="trabalho" value="Nucleo Direto"> <span class="labelcad">Núcleo Direto</span><br>
+                    <input type="radio" name="trabalho" value="Nucleo Indireto"> <span class="labelcad">Núcleo Indireto</span><br>
                     <input type="radio" name="trabalho" value="Coping para Resina"> <span class="labelcad">Coping para Resina</span><br><br>
                     <input type="radio" name="trabalho"><span class="labelcad">Prótese não listada</span>
                     <input type="text" name="trabalho_naoListado">
@@ -129,14 +136,14 @@
                     <input type="radio" name="trabalho" value="Coping Cerâmico"> <span class="labelcad">Coping Cerâmico</span><br>
                     <input type="radio" name="trabalho" value="Inlay"> <span class="labelcad">Inlay</span><br>
                     <input type="radio" name="trabalho" value="Onlay"> <span class="labelcad">Onlay</span><br>
-                    <input type="radio" name="trabalho" value="Elemento Provisório Acrílico"> <span class="labelcad">Elemento Provisório Acrílico</span><br>
+                    <input type="radio" name="trabalho" value="Elemento Provisorio Acrílico"> <span class="labelcad">Elemento Provisório Acrílico</span><br>
                     <input type="radio" name="trabalho" value="Ponto de Solda"> <span class="labelcad">Ponto de Solda</span><br>
-                    <input type="radio" name="trabalho" value="Prótese Total"> <span class="labelcad">Prótese Total</span><br>          
-                    <input type="radio" name="trabalho" value="Ponte Móvel (Roach Metal)"> <span class="labelcad">Ponte Móvel (Roach Metal)</span><br>
-                    <input type="radio" name="trabalho" value="Ponte Móvel (R. parte Acrílica)"> <span class="labelcad">Ponte Móvel (R. parte Acrílica)</span><br>
+                    <input type="radio" name="trabalho" value="Protese Total"> <span class="labelcad">Prótese Total</span><br>          
+                    <input type="radio" name="trabalho" value="Ponte Movel (Roach Metal)"> <span class="labelcad">Ponte Móvel (Roach Metal)</span><br>
+                    <input type="radio" name="trabalho" value="Ponte Movel (R. parte Acrílica)"> <span class="labelcad">Ponte Móvel (R. parte Acrílica)</span><br>
             </div>        
             <div class="col-md-4">          
-                    <input type="radio" name="trabalho" value="Prótese Provisória"> <span class="labelcad">Prótese Provisória </span><br>
+                    <input type="radio" name="trabalho" value="Protese Provisoria"> <span class="labelcad">Prótese Provisória </span><br>
                     <input type="radio" name="trabalho" value="Placa Clareamento"> <span class="labelcad">Placa Clareamento</span><br>
                     <input type="radio" name="trabalho" value="Placa Bruxismo Acrílica"> <span class="labelcad">Placa Bruxismo Acrílica</span><br>
                     <input type="radio" name="trabalho" value="Placa Bruxismo Plastivac"> <span class="labelcad">Placa Bruxismo Plastivac</span><br>
@@ -144,7 +151,7 @@
                     <input type="radio" name="trabalho" value="Consertos"> <span class="labelcad">Consertos</span><br>
                     <input type="radio" name="trabalho" value="Moldeira Individual de Acrílico"> <span class="labelcad">Moldeira Individual de acrilico</span><br>
                     <input type="radio" name="trabalho" value="Montagem no Articulador"> <span class="labelcad">Montagem no Articulador</span><br>
-                    <input type="radio" name="trabalho" value="Prótese Parcial Provisória"> <span class="labelcad">Prótese Provisória </span><br>
+                    <input type="radio" name="trabalho" value="Protese Parcial Provisoria"> <span class="labelcad">Prótese Provisória </span><br>
                  </div>
                  </div>
                  
@@ -211,20 +218,18 @@
 
                         <div class="col-md-4">
                            
-                            <label class="labelcad">Numeração do Dente</label><br>
-                            <input required type="text" name="num_dente" id="numeracao"><br>
+                            <label class="labelcad">Numeração do Dente</label>
+                            <input required type="text" name="num_dente" id="numeracao">
                             
-                            <label class="labelcad">Seleção de cor</label><br>
+                            <label class="labelcad">Seleção de cor</label>
                             <input required type="text" name="cor_dente">
                          
                          </div>
 
-                          <div class="col-md-4">
+                          <div class="">
                            
                             <label class="labelcad">Data de Entrega</label><br>
-                            <input required type="date" name="data_entrega"><br>
-                            <label class="labelcad">Nome do Paciente</label><br>
-                            <input type="text" name="nome_paciente">
+                            <input required type="date" name="data_entrega">
                             
                          
                          </div>
@@ -236,8 +241,9 @@
                     <input type="text" name="obs" size="70">
                  </div><br>
                  <input onclick="pedido_Sucesso()" type="submit" class="button-cadastro"></input>
+                 <input name="protetico" value="<?php echo $loginProtetico?>" type="hidden">
         </form>
-                    <a href="mainDentista.php"><button class="button-cadastro">Voltar</button></a><p>P.S: O nome do paciente não sera divulgado</p>
+                    <a href="mainDentista.php"><button class="button-cadastro">Voltar</button></a>
         </div>
 
              

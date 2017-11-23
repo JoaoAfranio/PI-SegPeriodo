@@ -26,6 +26,11 @@
         $consulta = "SELECT comentario, dentista, nomeDentista FROM comentario WHERE protetico = '$logado'";
         $con = $conexao ->query($consulta) or die ($con->error);
 
+
+        $consultaEspecialidades = "SELECT * FROM protetico_especialidades WHERE protetico = '$logado'";
+        $conEsp = $conexao ->query($consultaEspecialidades) or die ($conEsp->error);
+        $dadosEsp = $conEsp->fetch_array();
+
         ?>
 
 
@@ -39,6 +44,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="css/sidebar.css">
+
+        <style type="text/css">
+            .semBullet{
+                list-style-type: none;
+            }
+            .ulSemEspaco{
+
+            }
+        </style>
     </head>
     <body>
 
@@ -139,7 +153,7 @@
 
                                     <br><br><br>
                                     <a style="color: #0067B8;cursor: pointer;" data-toggle="modal" data-target="#modalInfoPessoal">Editar informações pessoais</a><br>
-                                    <a style="color: #0067B8;" href="">Adicionar tipos de trabalho</a><br>
+                                    <a style="color: #0067B8;cursor: pointer;" data-toggle="modal" data-target="#modalTrabalhos">Adicionar tipos de trabalho</a><br>
                                     <a style="color: #0067B8;" href="">Anexar fotos de trabalhos</a><br>
                                     <a style="color: #0067B8;cursor: pointer;" data-toggle="modal" data-target="#modalAlterarSenha">Alterar Senha</a><br>
 
@@ -194,6 +208,53 @@
                                             </div>
                                           </div>
                                         </div>
+
+
+
+                                        <!-- Modal Alterar Trabalhos -->
+                                        <div class="modal fade" id="modalTrabalhos" role="dialog">
+                                          <div class="modal-dialog ">
+                                          
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Tipos de próteses</h4>
+                                              </div>
+                                              <div class="modal-body">
+                                                <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <h3>Especialidades:</h3>
+                                                        <ul style="padding-left: 20px;">
+                                                        <?php while($dadoEsp = $conEsp->fetch_array()){?>
+                                                        <li class="semBullet"><i class="glyphicon glyphicon-chevron-right"></i><?php echo $dadoEsp["especialidade"]?></li>
+                                                        <?php } ?>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="line"></div>
+                                                    <div class="row">
+                                                        <div class="col-md-8">
+                                                        <form action="adicionarEspecialidades.php" method="get">
+                                                        <h3>Adicionar Especialidades</h3>
+                                                            <input  type="hidden" name="login" value="<?php echo $dado1["login"]?>">
+                                                            <p>Insira suas especialidades</p>
+                                                            <input type="text" name="especialidade">
+
+
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                              <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success" onclick="alterado_Sucesso()">Enviar Alterações</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button> 
+                                                </form>
+                                              </div>
+                                                </div>
+                                              </div>
+                                            </div>
 
 
                                         <!-- Modal Alterar Alterar SEnha -->

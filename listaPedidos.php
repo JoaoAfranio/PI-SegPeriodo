@@ -17,10 +17,9 @@ $consulta1 = "SELECT nome FROM login WHERE login = '$logado'";
 $con1 = $conexao ->query($consulta1) or die ($con1->error);
 $dado1 = $con1->fetch_array();
 $nome = $dado1["nome"];
-
-$consulta = "SELECT * FROM pedidos WHERE dentista = '$logado'";
+//SELECT * FROM `requisicaopedidos` UNION SELECT * FROM `pedidos`;
+$consulta = "SELECT * FROM pedidos WHERE dentista = '$logado' UNION SELECT * FROM requisicaopedidos WHERE dentista = '$logado'";
 $con = $conexao ->query($consulta) or die ($con->error);
-
 
 ?>
 <html>
@@ -140,7 +139,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                         
                 		<th>Nº</th>
                         <th>Tipo</th>
-                        <th>Sexo do paciente</th>
+                        <th>Nome do paciente</th>
                         <th>Idade do paciente</th>
                         <th>Número do dente</th>
                         <th>Seleção de cor</th>
@@ -150,14 +149,24 @@ $con = $conexao ->query($consulta) or die ($con->error);
 
                 	<?php while($dado = $con->fetch_array()){?>
                 	<tr>
-                        
+                        <?php
+                            $loginProtetico = $dado["protetico_resp"];
+
+                            $consultaNome = "SELECT nome FROM login WHERE login = '$loginProtetico'";
+                            $conNome = $conexao ->query($consultaNome) or die ($conNome->error);
+                            $dados = $conNome->fetch_array();
+                            $nome = $dados["nome"];
+                         ?>
+
+
+
                 		<td style="padding-bottom: 10px;"><?php echo $dado["id"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["trabalho"];?></td>
-                		<td style="padding-bottom: 10px;"><?php echo $dado["sexo"];?></td>
+                		<td style="padding-bottom: 10px;"><?php echo $dado["nome_paciente"];?></td>
                 		<td style="padding-bottom: 10px;"><?php echo $dado["idade_paciente"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["num_dente"];?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["cor_dente"];?></td>
-                        <td style="padding-bottom: 10px;"><?php echo $dado["protetico_resp"];?></td>
+                        <td style="padding-bottom: 10px;"><?php echo $nome;?></td>
                         <td style="padding-bottom: 10px;"><?php echo $dado["disponibilidade"];?></td>
 
                         <td><button hidden="" <?php if (($dado["disponibilidade"] != "Pronto") and ($dado["disponibilidade"] != "Em Andamento")) echo "type='button' class='btn btn-info' data-toggle='modal' data-target='#alterarMODAL"?><?php echo $dado["id"]?>'>Editar</button>
@@ -193,10 +202,12 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                     <div class="col-md-4">
                                     <p><b>Data de Entrega</b></p>
                                     <p><?php echo $dado["data_entrega"]?></p>
+                                    <p><b>Cor do dente</b></p><p><?php echo $dado["cor_dente"]?></p>
                                     </div>
-                              
-                                 <p><b>Número do dente</b></p><p><?php echo $dado["num_dente"]?></p>
-                                 <p><b>Cor do dente</b></p><p><?php echo $dado["cor_dente"]?></p>
+                                    <div class="col-md-4">
+                                    <p><b>Número do dente</b></p><p><?php echo $dado["num_dente"]?></p>
+                                    <p><b>Nome</b></p><p><?php echo $dado["nome_paciente"]?></p>
+                                    </div>
                              </div>
 
                              <div class="modal-footer">
@@ -254,6 +265,7 @@ $con = $conexao ->query($consulta) or die ($con->error);
                                     </div>
                                     <div class="col-md-4">
                                     <p>Data de Entrega</p><input type="date" name="data_entrega" value="<?php echo $dado["data_entrega"]?>">
+                                    <p>Nome</p><input type="text" name="nome_paciente" value="<?php echo $dado["nome_paciente"]?>">
                                     </div>
                                 </div>
                                  <p>Número do dente</p><input name="num_dente" value="<?php echo $dado["num_dente"]?>">

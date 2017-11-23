@@ -13,10 +13,18 @@ session_start();
         
 $filtroESTADO = $_GET["estado"];
 
-$consulta = "SELECT nome, email, cidade, login FROM login WHERE estado = '$filtroESTADO'";
+
+
+if($filtroESTADO == ""){
+
+$consulta = "SELECT nome, email, cidade, login FROM login WHERE trabalho = 'protetico'";
 $con = $conexao ->query($consulta) or die ($con->error);
 
-
+}else{
+    
+$consulta = "SELECT nome, email, cidade, login FROM login WHERE estado = '$filtroESTADO' AND trabalho = 'protetico'";
+$con = $conexao ->query($consulta) or die ($con->error);
+}
 
 ?>
 <html>

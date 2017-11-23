@@ -9,6 +9,7 @@
 
 	$recebeTRABALHO_naoLISTADO = $_GET["trabalho_naoListado"];
 
+	$recebeNOME_PACIENTE = $_GET["nome_paciente"];
 	$recebeSEXO = $_GET["sexo"];
 	$recebeIDADE = $_GET["idade_pedido"];
 	
@@ -28,9 +29,9 @@
 
 
 	if($recebeTRABALHO_naoLISTADO == ""){
-	mysqli_query($conexao, "insert into pedidos (trabalho, sexo, idade_paciente, num_dente, cor_dente, obs, dentista,disponibilidade, data_entrega, estado) values ('$recebeTRABALHO', '$recebeSEXO','$recebeIDADE', '$recebeNUM_DENTE', '$recebeCOR_DENTE', '$recebeOBS', '$logado', 'Aberto', '$recebeData', '$estado')");
+	mysqli_query($conexao, "insert into pedidos (nome_paciente, trabalho, sexo, idade_paciente, num_dente, cor_dente, obs, dentista,disponibilidade, data_entrega, estado) values ('$recebeNOME_PACIENTE','$recebeTRABALHO', '$recebeSEXO','$recebeIDADE', '$recebeNUM_DENTE', '$recebeCOR_DENTE', '$recebeOBS', '$logado', 'Aberto', '$recebeData', '$estado')") or die(mysqli_error($conexao));
 	}else{
-	mysqli_query($conexao, "insert into pedidos (trabalho, sexo, idade_paciente, num_dente, cor_dente, obs, dentista,disponibilidade, data_entrega, estado) values ('$recebeTRABALHO_naoLISTADO', '$recebeSEXO','$recebeIDADE', '$recebeNUM_DENTE', '$recebeCOR_DENTE', '$recebeOBS', '$logado', 'Aberto', '$recebeData', '$estado')");
+	mysqli_query($conexao, "insert into pedidos (nome_paciente, trabalho, sexo, idade_paciente, num_dente, cor_dente, obs, dentista,disponibilidade, data_entrega, estado) values ('$recebeNOME_PACIENTE','$recebeTRABALHO_naoLISTADO', '$recebeSEXO','$recebeIDADE', '$recebeNUM_DENTE', '$recebeCOR_DENTE', '$recebeOBS', '$logado', 'Aberto', '$recebeData', '$estado')") or die(mysqli_error($conexao));
 	}
 	header("location:pedidosDentista.php");
 ?>
